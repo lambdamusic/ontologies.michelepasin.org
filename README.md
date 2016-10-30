@@ -5,4 +5,4 @@ Collection of ontologies, taxonomies, or conceptual schemas I have been working 
 ## Change log
 
 - 2016-10-30
-Created project
+Created project; added preexisting schemas 

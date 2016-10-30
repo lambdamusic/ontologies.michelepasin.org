@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:cidoc_crm="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#"
+    xmlns="http://purl.com/net/factoid#"
+    xmlns:sp="http://spinrdf.org/sp#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://purl.com/net/factoid">
+  <owl:Ontology rdf:about="">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An extension to the CIDOC-CRM ontology so that is includes document-interpretations i.e. a class reflecting the semantics of factoid-based prosopography (cf. Bradley 2003)</rdfs:comment>
+    <owl:imports rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs"/>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Version 1.0</owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Todo: add class descriptions as rdfs comments</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Document">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Document: mind that these categories express distinct physical and logical features of medieval documents. Information related to the context of the transaction recorded in the document is stored via the 'transaction type' class.  </rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E73.Information_Object"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Document_Interpretation_Act">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Class that represents the act of interpreting an historical document, to the purpose of extracting a 'factoid' from it (that is, an assertion circa the existence of a state of things of some sort)</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Document interpretation act</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Event"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E13.Attribute_Assignment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Situation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Temporal_Entity"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Situation</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E3.Condition_State"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Organization">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Agent"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Organization</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Person"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Event">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temporal Entity 1</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Temporal_Entity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E5.Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Temporal_Entity">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Temporal Entity</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E2.Temporal_Entity"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Person">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Agent"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Person</rdfs:label>
+    <owl:disjointWith rdf:resource="#Organization"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Agent">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Agent</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#E39.Actor"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="has_interpretation">
+    <rdfs:range rdf:resource="#Temporal_Entity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has target</rdfs:label>
+    <rdfs:domain rdf:resource="#Document_Interpretation_Act"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#P141F.assigned"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="has_source">
+    <rdfs:domain rdf:resource="#Document_Interpretation_Act"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has source</rdfs:label>
+    <rdfs:range rdf:resource="#Document"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#P140F.assigned_attribute_to"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="took_part_in">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >took part in</rdfs:label>
+    <rdfs:domain rdf:resource="#Agent"/>
+    <rdfs:range rdf:resource="#Temporal_Entity"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="had_participant"/>
+    </owl:inverseOf>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#P11B.participated_in"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#had_participant">
+    <owl:inverseOf rdf:resource="#took_part_in"/>
+    <rdfs:range rdf:resource="#Agent"/>
+    <rdfs:domain rdf:resource="#Temporal_Entity"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has participant</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#P11F.had_participant"/>
+  </owl:ObjectProperty>
+  <owl:AsymmetricProperty rdf:ID="has_author">
+    <rdfs:domain rdf:resource="#Document_Interpretation_Act"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has author</rdfs:label>
+    <rdfs:range rdf:resource="#Agent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/rdfs/cidoc_crm_v5.0.4_english_label.rdfs#P14F.carried_out_by"/>
+  </owl:AsymmetricProperty>
+  <rdf:Description>
+    <rdf:first rdf:parseType="Resource">
+    </rdf:first>
+    <rdf:rest rdf:parseType="Collection">
+      <sp:Filter/>
+    </rdf:rest>
+  </rdf:Description>
+  <sp:regex/>
+  <sp:str/>
+  <sp:Select/>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

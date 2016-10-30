@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://purl.org/net/phideas#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://purl.org/net/phideas">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.org/dc/elements/1.1/"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="ProblemArea">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Problem area</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="RhetoricalFigure">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Rhetorical figure</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Metaphor">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Metaphor</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RhetoricalFigure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Myth">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Myth</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Metaphor"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Problem">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Problem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Viewpoint">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Viewpoint</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Analogy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Analogy</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Metaphor"/>
+  </owl:Class>
+  <owl:Class rdf:ID="FieldOfStudy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Field of study</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ProblemArea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Discipline">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Discipline</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#ProblemArea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Distinction">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Distinction</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CounterExample">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Counter example</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Example"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Dychotomy">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Dychotomy</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Distinction"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Example">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Example</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RhetoricalFigure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Maxime">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Maxime</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RhetoricalFigure"/>
+  </owl:Class>
+  <owl:Class rdf:ID="ThoughtExperiment">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Thought experiment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#RhetoricalFigure"/>
+  </owl:Class>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

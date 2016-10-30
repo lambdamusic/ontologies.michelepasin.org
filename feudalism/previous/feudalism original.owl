@@ -1,0 +1,1182 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:factoid="http://purl.com/net/factoid#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.purl.com/net/feudalism#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.purl.com/net/feudalism">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >V. 0.1 Imported factoid vocabulary 
+V. 0.02 Added a bunch of event types from PASE 
+V. 0.03 Fixed wrong namespaces
+</owl:versionInfo>
+    <owl:imports rdf:resource="http://purl.com/net/factoid"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ontology describing the middle ages and the world of feudalism in Englang and Scotland, based on several projects hosted by King's College Department of Digital Humanities.</rdfs:comment>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >www.michelepasin.org</dc:creator>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_pope">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Gender">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Intercession_mediation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Chrism-loosing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Flight">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Election_of_bishop">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Election"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Mission_mission-sending">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Wergeld_payment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Taxation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="War">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Legitimate_use_of_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Diocese-visiting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Eating">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conquest">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Political_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Prophecy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Blessing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Legitimate_use_of_violence">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Religious_practice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Blinding">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Theft_attempted_theft">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Church_monastery_minster_foundation_dedication_restoration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Rebellion_sedition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Burh_or_abandonment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Modern_gaelic_forename">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Forename"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Royal_insignia_-_entrusting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Animal-tending">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Restoration_of_land_property">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Liturgical_celebration">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Throne-sitting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Political_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Persecution">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Commemoration_of_the_dead">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_ecclesiastical">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Appointment"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Invention_authorisation_of_relics">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Relics-incorrupt_preservation_placing_in_reliquary_requesting_translating">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appellation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Abstract"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Affection">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Marriage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Betrayal_oath-breaking">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Crusade">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Warfare_event"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Army-raising">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fortress-manning_occupation_repair">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Monastery_violation_of">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dsfsdfsdf</dc:creator>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Monastery violation of</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Weapon">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Physical"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Meeting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Feasting_banqueting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Embassy">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Legal_governmental_administrative_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Legal_governmental_administrative_acts">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Appointment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hostility">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Urban_development">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Patronimic">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Person_appellation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Betrothal">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Election">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conversation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Social_and_economic_acts_and_relations"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Book_circulating_making_reading_translating_writing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Patronage">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Social_and_economic_acts_and_relations">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Technological_invention">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Compensation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Introduction">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Confirmation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Advice_counsel">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Agreement">
+    <rdfs:comment>Instrument of the conclusion of a dispute between two parties, establishing terms of agreement. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Freeing_from_dues">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Reporting">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Church-adornment">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Friendship-making">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Submission">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Request">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Commendation">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Lust">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Outlawing">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_deacon">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Memorandum">
+    <rdfs:comment>A document beginning with Memorandum ('Be it remembered that…') which records events or judgments so that it can be remembered for future reference. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Confraternity">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Medical_treatment_sick-care_cautery">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Burning">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_priest">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Plundering">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Imprisonment">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Episcopal_profession">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Monastic_life_converting_to_joining_oblation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Alms-giving">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Excommunication">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Marital_desertion_separation_repudiation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Manumission">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Overwintering">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Diploma">
+    <rdfs:comment>The documents in the PoMS database defined as Diploma are instruments of the disposition of land, not in the form of a letter; there is therefore no address, but instead the document begins with a solemn invocation - In nomine Patris, et Filii, et Spiritus Sancti, etc.; the grantor refers to himself as Ego; the dispositive clause is in the present tense; it concludes with a solemn sanction and anathema; the document is subscribed by witnesses, with names in the nominative case. There are some variations within this form. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Conversion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_ecclesiastical_authority"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Brieve-charter">
+    <rdfs:comment>For the PoMS database we have defined a Brieve-charter as a type of royal charter that has the same function as a charter, but is deliverable, that is, it is addressed to a specific person or group of people, usually local royal officials. [POMS]</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Charter"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Naming">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Acts_of_ecclesiastical_authority">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Religious_ecclesiastical_acts"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Mutilation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Vowing_celibacy_chastity_virginity_poverty">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Desertion_military">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dsfsdfsdf</dc:creator>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Desertion military</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_emperor">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ordering">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Visit">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Policy_decision">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pursuit_military">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Building">
+    <rdfs:subClassOf rdf:resource="#Physical"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Battle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Mustering">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Church-going">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Adoption_secular">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Hanging">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pagan_temples_destruction">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Person_role">
+    <rdfs:comment>Example instances: 'knights', 'religious knights' etc
+
+We could have taxonomical relationship for classifying instances.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Type"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Praying">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_of_princeps">
+    <rdfs:subClassOf rdf:resource="#Appointment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Land-division">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Expulsion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Charter_confirmation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Type">
+    <rdfs:subClassOf rdf:resource="#Abstract"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Oath-swearing_fealty">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adoption_spiritual">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Horse-using_giving_acquisition_riding">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Commemoration_of_saint_calendar-entering">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Healing">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Metal-working">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Peace_agreement">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Medieval_gaelic_surname">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Surname"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Confirmation_of_land_privileges">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Assistance">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acts_of_crime_law-breaking_violence">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dsfsdfsdf</dc:creator>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Event 1</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Pilgrimage">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Peace_agreement_-_breach">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Title">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Person_appellation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Letter">
+    <rdfs:comment>Correspondence between persons. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Provisioning">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Kingdom_-_division_of">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Surname">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Person_appellation"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Liturgical_reform">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Charter">
+    <rdfs:comment>An instrument of disposition in the form of a letter; commencing with a collective address (in royal charters, usually to archbishops, bishops abbots, priors, earls, barons, justiciars, etc.); often described as a charter in the dispositive clause - hac presenti carta mea. The charter effects a disposition defined in the body of the text, usually the donation of property or the granting of legal rights. Charters have a list of witnesses given in the ablative case. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Settlement">
+    <rdfs:comment>Instrument of adjudication in a dispute. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Reconciliation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Charter-witnessing">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Prostitution">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Exorcism">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Governing">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_archbishop">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Statement">
+    <rdfs:comment>Instrument of general notification that an event has occurred or that certain circumstances obtain. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Camp-pitching">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Borrowing_lending">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Miracle">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Papal_Letter">
+    <rdfs:comment>Instrument by which the Pope grants or confirms rights, confers benefices, promulgates statutes or decrees, or decides cases (Letters of Grace); or conveying the Pope's administrative orders, including the mass of his official correspondence (Letters of Justice). A Papal Letter has an epistolary greeting, Salutem et apostolicam benedictionem. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Law-making_legislation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Correspondence">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Treaty">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Life_-_orally_recounted">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_bishop">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Receipt">
+    <rdfs:comment>Instrument declaring that A has received X from B. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Crime">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Singing_song-composition">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Burial">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Absolution">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Political_acts">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Seizure_of_land">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Grantor_category">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Document_category"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Execution">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Injury_and_wounding">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Election_of_king">
+    <rdfs:subClassOf rdf:resource="#Election"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Papal_advice_audience_decision_privilege">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Embroidering">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Military_strategy">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Writ-issuing_sending">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Slave-selling">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Disobedience">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Modern_gaelic_surname">
+    <rdfs:subClassOf rdf:resource="#Surname"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Restoration_to_kingship">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Education_teaching">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Birth">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Papal_Privilege">
+    <rdfs:comment>The instrument of the grant or confirmation of rights of property and jurisdiction to churches and religious houses, issued in perpetuity (in perpetuum). A Solemn Privilege contains an opening protocol, giving the Pope's name, the name of the addressee, and the concluding phrase, in perpetuum; then comes the text, with preamble, a statement of the case, the enacting clause, and concluded with a sanction; the text ends with a threefold Amen; the final protocol has the Pope's subscription, made up of his rota, the monogram - a compressed bene ualete - and the subscription of the pope written at length. The last place in every document is occupied by the datum, giving the date and the name of the papal chancellor. The text was sealed with a pendant lead seal, the papal bulla, whence the term ‘bull'. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Transaction">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Transactions are described here as separate from Legal Acts, but we may have to rethink this distinction</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Confiscation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Skirmishing">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ecclesiastical_reform">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Challenge">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Killing_murder">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposition_of_abbot">
+    <rdfs:subClassOf rdf:resource="#Deposition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ransoming">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Date_appellation">
+    <rdfs:subClassOf rdf:resource="#Appellation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gild_activity_oath-swearing_mutually">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Message-sending">
+    <rdfs:subClassOf rdf:resource="#Political_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Interrogation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Coronation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_queen">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Assembly">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Drunkenness">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Drinking">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Death">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Exhumation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Kingdom_-_accession_to">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Service">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Arrest">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Surety-giving">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Poem-reciting_sending">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Disputing_dispute-settling">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Martyrdom">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Residence">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Life_events"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Capture">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Archiepiscopal_see_-_division">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ship-building_shipwreck">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_of_ealdorman">
+    <rdfs:subClassOf rdf:resource="#Appointment"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Tonsuring">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Brieve">
+    <rdfs:comment>A deliverable instrument, most often royal, but also produced by bishops and earls; usually addressed to a specific person or group of persons, and containing a notification and/or instruction or command; there is usually a list of witnesses. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pastoral_activities_preaching">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Exile">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Life_events">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Drowning">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Promise">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Property-exchanging">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Medieval_gaelic_forename">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Forename"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Letters_patent">
+    <rdfs:comment>A form of royal instrument that developed in the thirteenth century, used for appointments to office, concessions not in perpetuity, proclamations, etc. Letters patent (always in the plural) usually designate themselves as such towards the end of the text; they can either be addressed to an individual or individuals, or they can have a general form of address, though often a more attenuated one than found in charters - 'to all to whom the present letters arrive'. Unlike charters, they have no list of witnesses and no data per manum clause. Instead they end with a single witness, almost universally the king - Teste me ipso. After the teste clause there is the place and day of the month of issue, with the regnal year. In original manuscripts, the seal is attached to a tongue, the document being open (hence litterae patentes , 'open letters'). [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Burh_-_capture">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposition_of_archbishop">
+    <rdfs:subClassOf rdf:resource="#Deposition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Building_construction_or_restoration">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Heresy-allegations_condemnations">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Illness_demonic_seizure_madness">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposition_of_bishop">
+    <rdfs:subClassOf rdf:resource="#Deposition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hostage-giving_taking">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Allegiance">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Campaigning">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Gafol_payment">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Person_appellation">
+    <rdfs:subClassOf rdf:resource="#Appellation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Dreaming_seeing_vision_revelation">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Assessment">
+    <rdfs:comment>Instrument resulting from the valuation of property, establishing the legally determined value. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Sentence">
+    <rdfs:comment>Instrument of judgment in a criminal case. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Wildlife-interaction">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Baptism">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Council-meeting_ecclesiastical">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Engraving">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Confession">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Restoration_to_office">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Episcopal_see_acquisition_institution_division_merge">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Recognition_of_Perambulation">
+    <rdfs:comment>Instrument recognising the extent of boundaries as determined by a perambulation; contains a detailed description of the boundaries. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Insulting">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pallium-despatch_receipt_request">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Monastic_reform">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Burh_-_building">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Solitary_life_choosing_becoming_anchorite_hermit">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Refusal">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Pagan_practice">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Acts_of_Christian_piety"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_king">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Conspiracy_intent_to_murder">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Begging">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Suicide">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Warfare_event">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Indicating_bounds">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Disbandment_of_fierd">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Religious_ecclesiastical_acts">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Acts_of_Christian_piety">
+    <rdfs:subClassOf rdf:resource="#Religious_ecclesiastical_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hunting">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_consecration_elevation_ordination_of_abbot">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Appointment_consecration_elevation_ordination"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Enquiry">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Retirement">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Invasion">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Freeing_captives">
+    <rdfs:subClassOf rdf:resource="#Acts_of_Christian_piety"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Abdication">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Taking_leaving_power"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Poisoning">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Taking_leaving_power">
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Document_category">
+    <rdfs:subClassOf rdf:resource="#Type"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Charter_Brieve">
+    <rdfs:comment>A Charter with a general address which incorporates a discrete command or instruction to a specific person. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Charter"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Forfeiture">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Penance">
+    <rdfs:subClassOf rdf:resource="#Acts_of_Christian_piety"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Appointment_consecration_elevation_ordination">
+    <rdfs:subClassOf rdf:resource="#Taking_leaving_power"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ordeal">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adultery">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Speech">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Relics-collecting_depositing_granting">
+    <rdfs:subClassOf rdf:resource="#Acts_of_ecclesiastical_authority"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Judicial_decision_review">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Ascetic_practices_fasting_resisting_temptation">
+    <rdfs:subClassOf rdf:resource="#Acts_of_Christian_piety"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Bequeathing_will-making">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Language">
+    <rdfs:subClassOf rdf:resource="#Type"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Land-cultivation">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Siege">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Church_monastery_destruction">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Grant_and_Gift">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="AgreementAct">
+    <rdfs:subClassOf rdf:resource="#Political_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Journey">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Castle">
+    <rdfs:subClassOf rdf:resource="#Building"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Easter-observance">
+    <rdfs:subClassOf rdf:resource="#Acts_of_Christian_piety"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Restoration_to_bishopric">
+    <rdfs:subClassOf rdf:resource="#Taking_leaving_power"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Fostering">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Accusation">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Resigning_of_episcopal_office">
+    <rdfs:subClassOf rdf:resource="#Taking_leaving_power"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Forename">
+    <rdfs:subClassOf rdf:resource="#Person_appellation"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Demolition">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Support-gaining">
+    <rdfs:subClassOf rdf:resource="#Political_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Archiepiscopal_see_-_restoration">
+    <rdfs:subClassOf rdf:resource="#Legal_governmental_administrative_acts"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Invitation">
+    <rdfs:subClassOf rdf:resource="#Social_and_economic_acts_and_relations"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Defence">
+    <rdfs:subClassOf rdf:resource="#Legitimate_use_of_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Deposition_of_king">
+    <rdfs:subClassOf rdf:resource="#Deposition"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Notitia">
+    <rdfs:comment>A document of record, not an instrument; provides information of a valid transaction that has taken place beforehand, the participants being named in the third person. [POMS]</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.com/net/factoid#Document"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Raiding">
+    <rdfs:subClassOf rdf:resource="#Acts_of_crime_law-breaking_violence"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Search">
+    <rdfs:subClassOf rdf:resource="#Life_events"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Culting_venerating_saints">
+    <rdfs:subClassOf rdf:resource="#Acts_of_Christian_piety"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Appointment_of_eorl">
+    <rdfs:subClassOf rdf:resource="#Appointment"/>
+  </owl:Class>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
