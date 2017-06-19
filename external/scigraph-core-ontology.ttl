@@ -1,0 +1,3792 @@
+@prefix xmpRights: <http://ns.adobe.com/xap/1.0/rights/> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix lodc:  <http://lod.springer.com/data/ontology/class/> .
+@prefix sgg:   <http://name.scigraph.com/graphs/> .
+@prefix sg:    <http://name.scigraph.com/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xmpMM: <http://ns.adobe.com/xap/1.0/mm/> .
+@prefix spin:  <http://spinrdf.org/spin#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bibo:  <http://purl.org/ontology/bibo/> .
+@prefix xmp:   <http://ns.adobe.com/xap/1.0/> .
+@prefix sgo:   <http://name.scigraph.com/ontologies/> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix lodp:  <http://lod.springer.com/data/ontology/property/> .
+@prefix sp:    <http://spinrdf.org/sp#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix prism: <http://prismstandard.org/namespaces/basic/2.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+sg:Summary  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Summary"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:summaries ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/summaries/> ;
+        sg:type           "summaries" ;
+        skos:definition   "The :Summary class represents a brief description of a scholarly work, usually editorially generated."@en ;
+        skos:prefLabel    "Summary"@en .
+
+sg:Asset  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Asset"@en ;
+        rdfs:subClassOf   sg:Storage ;
+        sg:isTerm         true ;
+        sg:type           "assets" ;
+        skos:definition   "The :Asset class groups together all physical entities which can be stored in digital systems."@en ;
+        skos:prefLabel    "Asset"@en .
+
+lodp:confName  owl:equivalentProperty  sg:confName .
+
+sg:title  a                     owl:DatatypeProperty ;
+        rdfs:domain             sg:Publication ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "title"@en ;
+        rdfs:range              rdfs:Literal ;
+        sg:definition           "A title string for a resource."@en ;
+        sg:isRepeatable         false ;
+        sg:isTerm               true ;
+        sg:rangeLabel           "rdfs:Literal" ;
+        owl:equivalentProperty  lodp:title ;
+        skos:definition         "The :title property specifies a title to the main body content of a publication as a string."@en ;
+        skos:prefLabel          "title"@en .
+
+sg:publicationStartYear
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication start year"@en ;
+        rdfs:range        xsd:gYear ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYear" ;
+        skos:definition   "The :publicationStartYear property specifies the year date of a publication's start as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication start date."@en ;
+        skos:prefLabel    "publication start year"@en .
+
+sg:hasReviewState  a        owl:ObjectProperty ;
+        rdfs:domain         sg:ReviewEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has review state"@en ;
+        rdfs:range          sg:ReviewState ;
+        sg:definition       "A review state of a publication."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:hasReviewState" ;
+        skos:definition     "The :hasReviewState property relates a review-event to a review-state that describes some recognized change in the status of a publication's review history."@en ;
+        skos:prefLabel      "has review state"@en .
+
+sg:isVocabulary  a        owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is vocabulary"@en ;
+        sg:definition     "A boolean marking whether class is used as a contolled vocabulary."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isVocabulary property marks whether a class is used for a controlled vocabulary."@en ;
+        skos:prefLabel    "is vocabulary"@en .
+
+sg:issueEnd  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "issue end"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An end issue for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :issueEnd property specifies the end issue for a serial publication. Note that this :issueEnd property relates to the publisher holdings which may not be the same as the actual publication issue end."@en ;
+        skos:prefLabel    "issue end"@en .
+
+sg:body  a                owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "body"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A body string for a resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :body property specifies the main body content of a publication as a string."@en ;
+        skos:prefLabel    "body"@en .
+
+lodp:confSeriesName  owl:equivalentProperty
+                sg:confSeriesName .
+
+sg:baseUriTemplate  a     owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "base URI template"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A base target URI template for an asset."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :baseUriTemplate property specifies a string template for an asset base URI."@en ;
+        skos:prefLabel    "base URI template"@en .
+
+sg:replaces  a              owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "replaces"@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Thing" ;
+        owl:inverseOf       sg:replacedBy ;
+        skos:definition     "The :replaces property relates a thing to another thing that it replaces."@en ;
+        skos:prefLabel      "replaces"@en .
+
+sg:citation  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "citation"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :citation property specifies the full citation of a publication as a single string for reference purposes."@en ;
+        skos:prefLabel    "citation"@en .
+
+lodc:ProceedingsVolume
+        owl:equivalentClass  sg:ProceedingsVolume .
+
+lodc:BookChapter  owl:equivalentClass  sg:BookChapter .
+
+sg:sortLetter  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "sort letter"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A sort letter for an entity."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :sortLetter property specifies the initial letter of an entity name to facilitate sort operations."@en ;
+        skos:note         "This property is generally computed from a build-time rule."@en ;
+        skos:prefLabel    "sort letter"@en .
+
+sg:onClass  a               owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "on class"@en ;
+        rdfs:range          owl:Class ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "owl:Class" ;
+        skos:definition     "The :onClass property relates a binding within a contract to an owl:Class."@en ;
+        skos:prefLabel      "on class"@en .
+
+sg:PublishEvent  a        owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publish event"@en ;
+        rdfs:subClassOf   sg:PublicationEvent ;
+        sg:hasGraph       sgg:publish-events ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/publish-events/> ;
+        sg:type           "publish-events" ;
+        skos:definition   "The :PublishEvent class represents events related to the publication of a document. This is intended in a strict sense, i.e. the time when a publication is made 'public'."@en ;
+        skos:note         "In order to differentiate these events further, the :PublishState vocabulary is used."@en ;
+        skos:prefLabel    "Publish event"@en .
+
+sg:email  a               owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "email"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An email address."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :email property specifies an email address."@en ;
+        skos:prefLabel    "email"@en .
+
+sg:hasSerial  a             owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has serial"@en ;
+        rdfs:range          sg:Serial ;
+        sg:definition       "A serial publication related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Serial" ;
+        skos:definition     "The :hasSerial property relates a publication to a serial."@en ;
+        skos:prefLabel      "has serial"@en .
+
+sg:type  a                owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "type"@en ;
+        sg:definition     "A type given to a resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :type property specifies the local name of the graph namespace used for instances of a class."@en ;
+        skos:note         "This property is used as a surrogate for the class name. There is a one-to-one relation between the class name and its associated graph, e.g. instances of the class :Subject are assigned to the subjects: graph."@en ;
+        skos:prefLabel    "type"@en .
+
+sg:hasAllowedPrimaryArticleType
+        a                   owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has allowed primary article type"@en ;
+        rdfs:range          sg:PrimaryArticleType ;
+        sg:definition       "An allowed primary article type related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:PrimaryArticleType" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has allowed primary article type"@en .
+
+sg:year  a                owl:DatatypeProperty ;
+        rdfs:domain       sg:Event ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "year"@en ;
+        rdfs:range        xsd:gYear ;
+        sg:definition     "A year for an event."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYear" ;
+        skos:definition   "The :date property specifies the year date of an event as a string."@en ;
+        skos:prefLabel    "year"@en .
+
+sg:hasItem  a               owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has item"@en ;
+        rdfs:range          sg:Item ;
+        sg:definition       "An item within a collection."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Item" ;
+        skos:definition     "The :hasItem property relates a publication to an item."@en ;
+        skos:prefLabel      "has item"@en .
+
+sg:assetVersion  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "asset version"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :assetVersion property specifies the version of an :Asset associated with a :PublishEvent."@en ;
+        skos:prefLabel    "asset version"@en .
+
+sg:publishedMetadataUriTemplate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:AssetMap ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "published metadata URI template"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  sg:metadataUriTemplate ;
+        sg:definition       "A source URI template for a published metadata (discovery) document."@en ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "The :metadataUriTemplate property specifies a source URI template for a published metadata (discovery) document."@en ;
+        skos:prefLabel      "published metadata URI template"@en .
+
+sg:hasSection  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Item ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has section"@en ;
+        rdfs:range          sg:Section ;
+        sg:definition       "A section within a collection."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Section" ;
+        skos:definition     "The :hasSection property relates an item to a section component."@en ;
+        skos:prefLabel      "has section"@en .
+
+sg:isTestInstance  a      owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is test instance"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether resource is for test purposes only."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isTestInstance property marks whether a resource is to be used for test purposes only."@en ;
+        skos:prefLabel    "is test instance"@en .
+
+sg:chapterOf  a                 owl:ObjectProperty ;
+        rdfs:domain             sg:BookChapter ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "chapter of"@en ;
+        rdfs:range              sg:Book ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:chapterOf ;
+        skos:definition         "The :chapterOf property specifies ..."@en ;
+        skos:prefLabel          "chapter of"@en .
+
+sg:alertListId  a         owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "alert list ID"@en ;
+        rdfs:range        xsd:integer ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :alertsListId property specifies a number used for managing e-alert lists."@en ;
+        skos:note         "This property is a legacy from the PSET application."@en ;
+        skos:prefLabel    "alert list ID"@en .
+
+sg:captionXml  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Image ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "caption (XML)"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :captionXml property specifies the caption of a figure or illustration as an XML string."@en ;
+        skos:prefLabel    "caption (XML)"@en .
+
+sg:ejpManuscriptSubmitLink
+        a                 owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "eJP manuscript submit link"@en ;
+        rdfs:range        xsd:integer ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :ejpManuscriptSubmitLink property specifies a URL used by the eJP manuscript tracking system for article submission."@en ;
+        skos:note         "This property is a legacy from the PSET application."@en ;
+        skos:prefLabel    "eJP manuscript submit link"@en .
+
+sg:hasPdfAsset  a           owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has PDF asset"@en ;
+        rdfs:range          sg:PdfAsset ;
+        sg:definition       "An asset related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:PdfAsset" ;
+        skos:definition     "The :hasPdfAsset property relates a publication to a pdf-asset."@en ;
+        skos:prefLabel      "has PDF asset"@en .
+
+sg:CitationMetrics  a     owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Citation metrics"@en ;
+        rdfs:subClassOf   sg:Metrics ;
+        sg:hasGraph       sgg:citation-metrics ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/citation-metrics/> ;
+        sg:type           "citation-metrics" ;
+        skos:definition   "The :CitationMetrics class represents specific measurements of the citation impact of a publication, or group of publications. For example, the metrics provided annually by organisations like the Web of Science, Scopus or Journal Citation Reports."@en ;
+        skos:prefLabel    "Citation metrics"@en .
+
+sg:hasGraph  a              owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has graph"@en ;
+        rdfs:range          sg:Graph ;
+        sg:definition       "A graph related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Graph" ;
+        skos:definition     "The :hasGraph property relates an entity to the RDF named graph associated with it."@en ;
+        skos:prefLabel      "has graph"@en .
+
+sg:assetFolderName  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "asset folder name"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A server folder name equivalent to the domain name."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :assetFolderName property specifies a folder name for file storage assets."@en ;
+        skos:prefLabel    "asset folder name"@en .
+
+sg:hasIllustration  a       owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has illustration"@en ;
+        rdfs:range          sg:Illustration ;
+        sg:definition       "An illustration related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Illustration" ;
+        skos:definition     "The :hasIllustration property relates a publication to an illustration."@en ;
+        skos:prefLabel      "has illustration"@en .
+
+sg:hasContract  a           owl:ObjectProperty ;
+        rdfs:domain         owl:Class ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has contract"@en ;
+        rdfs:range          sg:Contract ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Contract" ;
+        skos:definition     "The :hasContract property relates a knowledge-base to a contract for data exports."@en ;
+        skos:prefLabel      "has contract"@en .
+
+sg:bookSeriesAcronym  a         owl:DatatypeProperty ;
+        rdfs:domain             sg:ProceedingsVolume , sg:Book ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "book series acronym"@en ;
+        rdfs:range              rdfs:Literal ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:bookSeriesAcronym ;
+        skos:definition         "The :bookSeriesAcronym property specifies ..."@en ;
+        skos:prefLabel          "book series acronym"@en .
+
+sg:publicationName  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication name"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A name for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :publicationName property specifies a string name for an external publication."@en ;
+        skos:prefLabel    "publication name"@en .
+
+sg:hasAccessType  a         owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has access type"@en ;
+        rdfs:range          sg:AccessType ;
+        sg:definition       "An access type for an article."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:AccessType" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has access type"@en .
+
+sg:BinaryAsset  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Binary asset"@en ;
+        rdfs:subClassOf   sg:BlobAsset ;
+        sg:hasGraph       sgg:binary-assets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/binary-assets/> ;
+        sg:type           "binary-assets" ;
+        skos:definition   "The :BinaryAsset class represents the physical rendition of a generic binary object."@en ;
+        skos:prefLabel    "Binary asset"@en .
+
+sg:pluralLabel  a           owl:DatatypeProperty ;
+        rdfs:domain         sg:Concept ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "plural label"@en ;
+        rdfs:range          rdf:langString ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        skos:definition     "The :pluralLabel property specifies a plural form for the preferred label."@en ;
+        skos:prefLabel      "plural label"@en .
+
+sg:yearMonth  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Event ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "year-month"@en ;
+        rdfs:range        xsd:gYearMonth ;
+        sg:definition     "A yearMonth for an event."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYearMonth" ;
+        skos:definition   "The :date property specifies the year and month date of an event as a string."@en ;
+        skos:prefLabel    "year-month"@en .
+
+sg:Publication  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publication"@en ;
+        rdfs:subClassOf   sg:Concept ;
+        sg:isTerm         true ;
+        sg:type           "publications" ;
+        skos:definition   "The :Publication class groups together all individuals (or part of) created as the result of the publishing process. Note that we are not referring here to the physical artefacts, but just their abstract counterparts."@en ;
+        skos:prefLabel    "Publication"@en .
+
+sg:xmlAssetUriTemplate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:AssetMap ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "XML asset URI template"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  sg:assetUriTemplate ;
+        sg:definition       "A target URI template for an XML asset."@en ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "The :xmlAssetUriTemplate property specifies a URI template for an XML asset."@en ;
+        skos:prefLabel      "XML asset URI template"@en .
+
+sg:hasPublishEvent  a       owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has publish event"@en ;
+        rdfs:range          sg:PublishEvent ;
+        sg:definition       "A publish event related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:hasPublishEvent" ;
+        skos:definition     "The :hasPublishEvent property relates a publication to a publish-event that describes some recognized change in the status of a publication's publish history."@en ;
+        skos:prefLabel      "has publish event"@en .
+
+sg:hasAbstract  a           owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has abstract"@en ;
+        rdfs:range          sg:Abstract ;
+        sg:definition       "An abstract of the article."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Abstract" ;
+        skos:definition     "The :hasAbstract property relates an article to the abstract for an article."@en ;
+        skos:prefLabel      "has abstract"@en .
+
+sg:isNamedResource  a     owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is named resource"@en ;
+        sg:definition     "A boolean marking whether object resource is named."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isNamedResource property marks whether an object resource is named or is unnamed (i.e. a blank node)."@en ;
+        skos:prefLabel    "is named resource"@en .
+
+lodp:EISBN  owl:equivalentProperty  sg:eisbn .
+
+sg:isPalgraveSubject  a   owl:DatatypeProperty ;
+        rdfs:domain       sg:Subject ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is Palgrave subject"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a term is a Palgrave subject ontology term."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isPalgraveSubject property marks whether a subject term is a Palgrave subject term."@en ;
+        skos:prefLabel    "is Palgrave subject"@en .
+
+lodp:lastPage  owl:equivalentProperty  sg:lastPage .
+
+sg:markLogicCollection
+        a                 owl:AnnotationProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "MarkLogic collection"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A collection label used in MarkLogic."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "MarkLogic collection"@en .
+
+sg:publicationDateTime
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication datetime"@en ;
+        rdfs:range        xsd:dateTime ;
+        sg:definition     "A dateTime for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:dateTime" ;
+        skos:definition   "The :publicationDateTime property specifies the full date of a publication as a string, including the time of publication."@en ;
+        skos:prefLabel    "publication datetime"@en .
+
+sg:code  a                owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "code"@en ;
+        rdfs:range        xsd:integer ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :code property specifies an integer number representing an internal ID for an object."@en ;
+        skos:note         "This property is used by the doamin ontologies for managing terms."@en ;
+        skos:prefLabel    "code"@en .
+
+sg:submittedBy  a         owl:DatatypeProperty ;
+        rdfs:domain       sg:Subject ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "submitted by"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A property indicating a submitter."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :submittedBy property specifies the email address of a submitter."@en ;
+        skos:note         "This property is used to record who submitted a new definition for a :Subject term."@en ;
+        skos:prefLabel    "submitted by"@en .
+
+sg:ReviewEvent  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Review event"@en ;
+        rdfs:subClassOf   sg:PublicationEvent ;
+        sg:hasGraph       sgg:review-events ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/review-events/> ;
+        sg:type           "review-events" ;
+        skos:definition   "The :ReviewEvent class models events related to the reviewing of a document (before its publication). In order to differentiate these events further, the :ReviewState vocabulary is used."@en ;
+        skos:prefLabel    "Review event"@en .
+
+sg:targetDomain  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "target domain"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A target domain for a product."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "target domain"@en .
+
+sg:repositoryId  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "repository ID"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A repository ID for the asset identified by subject."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :repositoryId property specifies a (local) repository ID for an asset."@en ;
+        skos:prefLabel    "repository ID"@en .
+
+sg:webpage  a               owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "web page"@en ;
+        sg:definition       "A web page for a resource."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :webpage property relates a publication to a page on the web that describes it."@en ;
+        skos:prefLabel      "web page"@en .
+
+sg:DataRepository  a      owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Data repository"@en ;
+        rdfs:subClassOf   sg:DigitalRepository ;
+        sg:hasGraph       sgg:data-repositories ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/data-repositories/> ;
+        sg:type           "data-repositories" ;
+        owl:disjointWith  sg:DocumentRepository ;
+        skos:definition   "The :DataRepository class represents an archive hosting digital data artefacts."@en ;
+        skos:prefLabel    "Data repository"@en .
+
+sg:isPrimaryArticleType
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:ArticleType ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is primary article type"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isPrimaryArticleType property marks whether an article-type can be used for grouping purposes."@en ;
+        skos:prefLabel    "is primary article type"@en .
+
+sg:hasPublishState  a       owl:ObjectProperty ;
+        rdfs:domain         sg:PublishEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has publish state"@en ;
+        rdfs:range          sg:PublishState ;
+        sg:definition       "A publish state of a publication."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:hasPublishState" ;
+        skos:definition     "The :hasPublishState property relates a publish-event to a publish-state that describes some recognized change in the status of a publication's publish history."@en ;
+        skos:prefLabel      "has publish state"@en .
+
+sg:Person  a              owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Person"@en ;
+        rdfs:subClassOf   sg:Agent ;
+        sg:isTerm         true ;
+        sg:type           "persons" ;
+        skos:definition   "The :Person class represents a single person entity."@en ;
+        skos:prefLabel    "Person"@en .
+
+sg:caption  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Image ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "caption"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A caption string for a resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :caption property specifies the caption of a figure or illustration as a string."@en ;
+        skos:prefLabel    "caption"@en .
+
+lodp:isIndexedByScopus
+        owl:equivalentProperty  sg:isIndexedByScopus .
+
+sg:hasContributor  a        owl:ObjectProperty ;
+        rdfs:domain         sg:Document ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has contributor"@en ;
+        rdfs:range          sg:Contributor ;
+        sg:definition       "A contributor related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Contributor" ;
+        skos:definition     "The :hasContributor property relates a publication to a string containing the name of one of the authors of that publication."@en ;
+        skos:note           "Normally, the contributor name is a non-disambiguated person name, meaning that several contributor instances may refer to the same person."@en ;
+        skos:prefLabel      "has contributor"@en .
+
+sg:citationXml  a         owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "citation (XML)"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :citationXML property specifies the full citation of a publication as a single string containing XML for user presentation."@en ;
+        skos:note         "This is an alternative representation of the :citation property."@en ;
+        skos:prefLabel    "citation (XML)"@en .
+
+lodc:Book  owl:equivalentClass  sg:Book .
+
+sg:isManagedExternally
+        a                 owl:AnnotationProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is managed externally"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isManagedExternally property marks whether the resource is managed directly by an external tool."@en ;
+        skos:note         "This property especially applies to the domain ontologies managed by the PoolParty taxonomy manager."@en ;
+        skos:prefLabel    "is managed externally"@en .
+
+sg:publicationEndYear
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication end year"@en ;
+        rdfs:range        xsd:gYear ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYear" ;
+        skos:definition   "The :publicationEndYear property specifies the year date of a publication's end as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication end date."@en ;
+        skos:prefLabel    "publication end year"@en .
+
+sg:itemList  a              owl:ObjectProperty ;
+        rdfs:domain         sg:Collection ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "item list"@en ;
+        rdfs:range          rdf:List ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "The :itemList property specifies an ordered list of items."@en ;
+        skos:prefLabel      "item list"@en .
+
+sg:AssetMap  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Asset map"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:asset-maps ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/asset-maps/> ;
+        sg:type           "asset-maps" ;
+        skos:definition   "The :AssetMap class represents a system map for describing asset locations within different workflows."@en ;
+        skos:prefLabel    "Asset map"@en .
+
+sg:ExternalContributor
+        a                 owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "External contributor"@en ;
+        rdfs:subClassOf   sg:Contributor ;
+        sg:hasGraph       sgg:external-contributors ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/external-contributors/> ;
+        sg:type           "external-contributors" ;
+        skos:definition   "The :ExternalContributor class represents a contributor from an article which is externally published."@en ;
+        skos:note         "The :ExternalContributor class subclasses the :Contributor class."@en ;
+        skos:prefLabel    "External contributor"@en .
+
+sg:hasTestPublicationGroup
+        a                   owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has test publication group"@en ;
+        rdfs:range          sg:PublicationGroup ;
+        sg:definition       "A test publication group related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:TestPublicationGroup" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has test publication group"@en .
+
+sg:confCountry  a               owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference country"@en ;
+        rdfs:range              rdf:langString ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confCountry ;
+        skos:definition         "The :confCountry property specifies ..."@en ;
+        skos:prefLabel          "conference country"@en .
+
+sg:doi  owl:equivalentProperty  lodp:bookDOI .
+
+sg:Issue  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Issue"@en ;
+        rdfs:subClassOf   sg:Collection ;
+        sg:hasGraph       sgg:issues ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/issues/> ;
+        sg:type           "issues" ;
+        skos:definition   "The :Issue class represents an aggregate object which is published periodically as part of a :Serial and is normally composed by one or more articles. (See also :Collection.)"@en ;
+        skos:prefLabel    "Issue"@en .
+
+sg:Tool  a                owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Tool"@en ;
+        rdfs:subClassOf   sg:Concept ;
+        sg:isTerm         true ;
+        sg:type           "tools" ;
+        skos:definition   "The :Tool class groups together all classes used for automated data publishing."@en ;
+        skos:prefLabel    "Tool"@en .
+
+sg:itemType  a              owl:ObjectProperty ;
+        rdfs:domain         sg:Item ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "item type"@en ;
+        sg:definition       "A type for an item in a collection."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :itemType property specifies the type of an item."@en ;
+        skos:prefLabel      "item type"@en .
+
+sg:count  a               owl:ObjectProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "count"@en ;
+        sg:definition     "A count of instances of an entity."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :count property specifies a map which records the number of instances of an entity."@en ;
+        skos:prefLabel    "count"@en .
+
+sg:Illustration  a        owl:Class ;
+        rdfs:comment      "A class for Illustration objects." ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Illustration"@en ;
+        rdfs:subClassOf   sg:Image ;
+        sg:hasGraph       sgg:illustrations ;
+        sg:isTerm         true ;
+        sg:type           "illustrations" ;
+        owl:disjointWith  sg:Figure ;
+        skos:definition   "The :Illustration class represents a numbered and captioned image within a publication. This image typically illustrates a point about the work described in the publication."@en ;
+        skos:prefLabel    "Illustration"@en .
+
+lodp:hasDBLPID  owl:equivalentProperty  sg:hasDblpId .
+
+sg:hasPreviousIssue  a      owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has previous issue"@en ;
+        rdfs:range          sg:Issue ;
+        rdfs:subPropertyOf  sg:hasIssue ;
+        sg:definition       "A previous issue related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Issue" ;
+        skos:definition     "The :hasPreviousIssue property relates a publication to the previous issue."@en ;
+        skos:prefLabel      "has previous issue"@en .
+
+sg:latestMetadataUriTemplate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:AssetMap ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "latest metadata URI template"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  sg:latestMetadataUriTemplate ;
+        sg:definition       "A source URI template for a latest metadata (discovery) document."@en ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "The :metadataUriTemplate property specifies a source URI template for a latest metadata (discovery) document."@en ;
+        skos:prefLabel      "latest metadata URI template"@en .
+
+sg:Concept  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Concept"@en ;
+        rdfs:subClassOf   sg:Thing ;
+        sg:isTerm         true ;
+        sg:type           "concepts" ;
+        skos:definition   "The :Concept class groups together all individuals which do not exist in the physical world (i.e. have no extension in spacetime)."@en ;
+        skos:prefLabel    "Concept"@en .
+
+sg:isEventWorkflow  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is event workflow"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a :Journal is in the :PublishEvent workflow."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isEventWorkflow property marks whether a publication is in the new metadata-based (event) workflow."@en ;
+        skos:prefLabel    "is event workflow"@en .
+
+sg:AnnotationEvent  a     owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Annotation event"@en ;
+        rdfs:subClassOf   sg:Event ;
+        sg:isTerm         true ;
+        sg:namespace      <http://name.scigraph.com/annotations/> ;
+        sg:type           "annotations" ;
+        skos:definition   "The :AnnotationEvent class groups together all events describing the process of adding notes or marking up a publication (or part of it) via some other content."@en ;
+        skos:prefLabel    "Annotation event"@en .
+
+sg:ProceedingsVolume  a      owl:Class ;
+        rdfs:isDefinedBy     sg: ;
+        rdfs:label           "Proceedings volume"@en ;
+        rdfs:subClassOf      sg:Publication ;
+        sg:hasGraph          sgg:proceedings-volume ;
+        sg:isTerm            true ;
+        sg:isVocabulary      false ;
+        sg:namespace         <http://name.scigraph.com/proceedings-volume/> ;
+        sg:type              "proceedings-volumes" ;
+        owl:equivalentClass  lodc:ProceedingsVolume ;
+        skos:definition      "The :ProceedingsVolume class represents ..."@en ;
+        skos:prefLabel       "Proceedings volume"@en .
+
+sg:namespace  a           owl:ObjectProperty ;
+        rdfs:domain       owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "namespace"@en ;
+        sg:definition     "A namespace used by the SciGraph Core Ontology."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :namespace property provides the RDF namespace used in creating instances of a class."@en ;
+        skos:prefLabel    "namespace"@en .
+
+sg:PrimaryArticleType
+        a                 owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Primary article type"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:primary-article-types ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/primary-article-types/> ;
+        sg:type           "primary-article-types" ;
+        owl:deprecated    true ;
+        skos:definition   "The :PrimaryArticleType class represents ..."@en ;
+        skos:prefLabel    "Primary article type"@en .
+
+sg:content  a             owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "content"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A content type for a product."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "content"@en .
+
+sg:hasBlog  a               owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has blog"@en ;
+        rdfs:range          sg:Blog ;
+        rdfs:subPropertyOf  sg:hasSerial ;
+        sg:definition       "A blog related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Blog" ;
+        skos:definition     "The :hasBlog property relates a serial to a blog associated with it."@en ;
+        skos:prefLabel      "has blog"@en .
+
+sg:hasWebsite  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has website"@en ;
+        rdfs:range          sg:Website ;
+        rdfs:subPropertyOf  sg:hasSerialPublication ;
+        sg:definition       "A website related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Website" ;
+        skos:definition     "The :hasWebsite property relates a publication to a website."@en ;
+        skos:prefLabel      "has website"@en .
+
+sg:test  a                owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "test"@en ;
+        sg:definition     "The :test property provides a general string test property."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :test property specifies a general string test property."@en ;
+        skos:prefLabel    "test"@en .
+
+sg:chapterOnlineDate  a         owl:DatatypeProperty ;
+        rdfs:domain             sg:BookChapter ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "chapter online date"@en ;
+        rdfs:range              xsd:date ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:chapterOnlineDate ;
+        skos:definition         "The :chapterOnlineDate property specifies ..."@en ;
+        skos:prefLabel          "chapter online date"@en .
+
+sg:hasCorrespondingContributor
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has corresponding contributor"@en ;
+        rdfs:range          sg:Contributor ;
+        rdfs:subPropertyOf  sg:hasContributor ;
+        sg:definition       "A corresponding contributor related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Contributor" ;
+        skos:definition     "The :hasCorrespondingContributor property relates an article to the name of its corresponding author."@en ;
+        skos:prefLabel      "has corresponding contributor"@en .
+
+sg:DigitalRepository  a   owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Digital repository"@en ;
+        rdfs:subClassOf   sg:Repository ;
+        sg:hasGraph       sgg:digital-repositories ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/digital-repositories/> ;
+        sg:type           "digital-repositories" ;
+        owl:disjointWith  sg:PhysicalRepository ;
+        skos:definition   "The :DigitalRepository class represents an archive of digital artefacts."@en ;
+        skos:prefLabel    "Digital repository"@en .
+
+sg:hasNextIssue  a          owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has next issue"@en ;
+        rdfs:range          sg:Issue ;
+        rdfs:subPropertyOf  sg:hasIssue ;
+        sg:definition       "A next issue related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Issue" ;
+        skos:definition     "The :hasNextIssue property relates a publication to the next issue."@en ;
+        skos:prefLabel      "has next issue"@en .
+
+sg:hasTechnique  a          owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has technique"@en ;
+        rdfs:range          sg:Technique ;
+        sg:definition       "A technique related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Technique" ;
+        skos:definition     "The :hasTechnique property relates a publication to a technique term which describes one of the main scientific methods the publication is about."@en ;
+        skos:prefLabel      "has technique"@en .
+
+sg:citationData  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "citation (data)"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :citationData property specifies the full citation of a publication as a single string for machine use."@en ;
+        skos:note         "This is an alternative representation of the :citation property."@en ;
+        skos:prefLabel    "citation (data)"@en .
+
+sg:Subject  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Subject"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:subjects ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/subjects/> ;
+        sg:type           "subjects" ;
+        skos:definition   "The :Subject class represents a topic, field of study or research area which can be used to categorise the contents of a publication. The instances of :Subject are organised hierarchically using the SKOS vocabulary."@en ;
+        skos:prefLabel    "Subject"@en .
+
+sg:idHash  a              owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "ID hash"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A hash of an ID assigned to a thing."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        owl:deprecated    true ;
+        skos:definition   "The :idHash property specifies a string hash value for an ID."@en ;
+        skos:prefLabel    "ID hash"@en .
+
+sg:AggregationEvent  a    owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Aggregation event"@en ;
+        rdfs:subClassOf   sg:Event ;
+        sg:isTerm         true ;
+        sg:type           "aggregation-events" ;
+        skos:definition   "The :AggregationEvent class groups together all events related to the construction of a publication."@en ;
+        skos:prefLabel    "Aggregation event"@en .
+
+sg:rangeLabel  a          owl:AnnotationProperty ;
+        rdfs:domain       rdf:Property ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "range label"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A label for an rdfs:range resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "range label"@en .
+
+sg:isIndexedByScopus  a         owl:DatatypeProperty ;
+        rdfs:domain             sg:Book , sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "is indexed by Scopus"@en ;
+        rdfs:range              xsd:boolean ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:isIndexedByScopus ;
+        skos:definition         "The :isIndexedByScopus property specifies ..."@en ;
+        skos:prefLabel          "is indexed by Scopus"@en .
+
+sg:filename  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "filename"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A name for a file."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :filename property specifies the filename of an asset."@en ;
+        skos:prefLabel    "filename"@en .
+
+sg:Book  a                   owl:Class ;
+        rdfs:isDefinedBy     sg: ;
+        rdfs:label           "Book"@en ;
+        rdfs:subClassOf      sg:Publication ;
+        sg:hasGraph          sgg:books ;
+        sg:isTerm            true ;
+        sg:isVocabulary      false ;
+        sg:namespace         <http://name.scigraph.com/books/> ;
+        sg:type              "books" ;
+        owl:equivalentClass  lodc:Book ;
+        skos:definition      "The :Book class represents ..."@en ;
+        skos:prefLabel       "Book"@en .
+
+sg:isGroup  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Contributor ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is group"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a contributor term is for a contributor group."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isGroup property marks whether a contributor name refers to a collective agent, i.e. a group of people or an institution."@en ;
+        skos:prefLabel    "is group"@en .
+
+sg:onSubPropertyOf  a       owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "on subproperty of"@en ;
+        rdfs:range          rdfs:Property ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Property" ;
+        skos:definition     "The :onSubPropertyOf property relates a binding within a contract to an rdfs:Property."@en ;
+        skos:prefLabel      "on subproperty of"@en .
+
+sg:publicationDate  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication date"@en ;
+        rdfs:range        xsd:date ;
+        sg:definition     "A date for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:date" ;
+        skos:definition   "The :publicationDate property specifies the full date of a publication as a string."@en ;
+        skos:prefLabel    "publication date"@en .
+
+sg:Domain  a              owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Domain"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:domains ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/domains/> ;
+        sg:type           "domains" ;
+        skos:definition   "The :Domain class represents an instance of a categorisation of broad application areas within SciGraph. This categorisation is implemented as a SKOS vocabulary."@en ;
+        skos:prefLabel    "Domain"@en .
+
+sg:PublishState  a        owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publish state"@en ;
+        rdfs:subClassOf   sg:PublicationState ;
+        sg:hasGraph       sgg:publish-states ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/publish-states/> ;
+        sg:type           "publish-states" ;
+        skos:definition   "The :PublishState class provides a categorisation of the possible states a document may have after it has been published. For example, whether it’s an 'Advanced online publication' or an 'Issue publication'.  This categorisation is implemented as a SKOS vocabulary."@en ;
+        skos:prefLabel    "Publish state"@en .
+
+sg:hasSummary  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has summary"@en ;
+        rdfs:range          sg:Summary ;
+        sg:definition       "A summary of the article."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Summary" ;
+        skos:definition     "The :hasSummary property relates an article to an article summary."@en ;
+        skos:prefLabel      "has summary"@en .
+
+sg:isScopusSearchScheduled
+        a                       owl:DatatypeProperty ;
+        rdfs:domain             sg:ProceedingsVolume , sg:Book ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "is Scopus search scheduled"@en ;
+        rdfs:range              xsd:boolean ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:isScopusSearchScheduled ;
+        skos:definition         "The :isScopusSearchScheduled property specifies ..."@en ;
+        skos:prefLabel          "is Scopus search scheduled"@en .
+
+sg:VideoAsset  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Video asset"@en ;
+        rdfs:subClassOf   sg:BlobAsset ;
+        sg:hasGraph       sgg:video-assets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/video-assets/> ;
+        sg:type           "video-assets" ;
+        skos:definition   "The :VideoAsset class represents the physical rendition of a video asset in an encoded format."@en ;
+        skos:prefLabel    "Video asset"@en .
+
+sg:Dataset  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Dataset"@en ;
+        rdfs:subClassOf   sg:Publication ;
+        sg:hasGraph       sgg:datasets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/datasets/> ;
+        sg:type           "datasets" ;
+        skos:definition   "The :Dataset class represents a collection of related sets of information modelled in a known way and stored in a computer system."@en ;
+        skos:note         "We are currently using this class for RDF datasets."@en ;
+        skos:prefLabel    "Dataset"@en .
+
+sg:mesh  a                  owl:ObjectProperty ;
+        rdfs:domain         sg:Concept ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "MeSH"@en ;
+        rdfs:seeAlso        <http://id.nlm.nih.gov/mesh/> ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :mesh property relates a concept to a Medical Subject Heading (MeSH) term as a resource."@en ;
+        skos:prefLabel      "MeSH"@en .
+
+sg:articleTypePath  a       owl:DatatypeProperty ;
+        rdfs:domain         sg:ArticleType ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "article-type path"@en ;
+        rdfs:range          rdfs:Literal ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        skos:definition     "The :articleTypePath property specifies the position of a term within the subjects taxonomy by providing a path with the IDs of its successors."@en ;
+        skos:prefLabel      "article-type path"@en .
+
+sg:lastPage  a                  owl:DatatypeProperty ;
+        rdfs:domain             sg:BookChapter ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "last page"@en ;
+        rdfs:range              xsd:int ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:lastPage ;
+        skos:definition         "The :lastPage property specifies ..."@en ;
+        skos:prefLabel          "last page"@en .
+
+lodp:confStartDate  owl:equivalentProperty
+                sg:confStartDate .
+
+sg:isIssueBased  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is issue-based"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a journal publishes issues."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isIssueBased property marks whether a journal publishes issues."@en ;
+        skos:prefLabel    "is issue-based"@en .
+
+sg:allowedPrimaryArticleTypeList
+        a                   owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "allowed primary article type list"@en ;
+        rdfs:range          rdf:List ;
+        sg:definition       "An ordered list of allowed primary article types."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "allowed primary article type list"@en .
+
+sg:PublicationGroup  a    owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publication group"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:publication-groups ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/publication-groups/> ;
+        sg:type           "publication-groups" ;
+        skos:definition   "The :PublicationGroup class is used to categorize publications in terms of various brand-related or product-related aspects relevant to Springer Nature or its associated companies. This categorisation is implemented as a SKOS vocabulary."@en ;
+        skos:prefLabel    "Publication group"@en .
+
+sg:hasBinding  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Contract ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has binding"@en ;
+        rdfs:range          sg:Binding ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Binding" ;
+        skos:definition     "The :hasBinding property relates a contract to a binding for data exports."@en ;
+        skos:prefLabel      "has binding"@en .
+
+sg:domain  a              owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "domain"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A content domain."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "domain"@en .
+
+sg:DocumentRepository
+        a                 owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Document repository"@en ;
+        rdfs:subClassOf   sg:DigitalRepository ;
+        sg:hasGraph       sgg:document-repositories ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/document-repositories/> ;
+        sg:type           "document-repositories" ;
+        owl:disjointWith  sg:DataRepository ;
+        skos:definition   "The :DocumentRepository class represents an archive hosting digital copies of written items such as books, theses and scholarly articles."@en ;
+        skos:prefLabel    "Document repository"@en .
+
+sg:publicationEndYearMonth
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication end year-month"@en ;
+        rdfs:range        xsd:gYearMonth ;
+        sg:definition     "A yearMonth for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYearMonth" ;
+        skos:definition   "The :publicationEndYearMonth property specifies the year and month date of a publication's end as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication end date."@en ;
+        skos:prefLabel    "publication end year-month"@en .
+
+lodp:bookDOI  owl:equivalentProperty  sg:doi .
+
+lodp:title  owl:equivalentProperty  sg:title .
+
+sg:artid  a               owl:DatatypeProperty ;
+        rdfs:domain       sg:Document ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "artid"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An internal ID for an article."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :artid property specifies an internal ID for an article."@en ;
+        skos:prefLabel    "artid"@en .
+
+sg:ArticleType  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Article type"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:article-types ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/article-types/> ;
+        sg:type           "article-types" ;
+        skos:definition   "The :ArticleType class represents the various kinds of publication which can be used to index and group content published by Springer Nature. The instances of :ArticleType are organised hierarchically using the SKOS vocabulary."@en ;
+        skos:prefLabel    "Article type"@en .
+
+sg:hasPrimaryArticleType
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has primary article type"@en ;
+        rdfs:range          sg:ArticleType ;
+        rdfs:subPropertyOf  sg:hasArticleType ;
+        sg:definition       "A primary article type related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:PrimaryArticleType" ;
+        skos:definition     "The :hasPrimaryArticleType property relates an article to an article-type that can be used for grouping purposes."@en ;
+        skos:prefLabel      "has primary article type"@en .
+
+sg:isLeaf  a              owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is leaf"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a term is a leaf term."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isLeaf property marks whether a SKOS concept is a leaf SKOS concept."@en ;
+        skos:prefLabel    "is leaf"@en .
+
+sg:allowsPredicateStringTable
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "allows predicate string-table"@en ;
+        rdfs:range          rdfs:Literal ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        skos:definition     "The :allowsPredicateStringTable property specifies a list of predicates enocded as a string-table to include in a dataset export."@en ;
+        skos:prefLabel      "allows predicate string-table"@en .
+
+sg:dateEnd  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "date end"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An end date for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :dateEnd property specifies the end date for a serial publication. Note that this date relates to the publisher holdings which may not be the same as the actual publication end date."@en ;
+        skos:prefLabel    "date end"@en .
+
+sg:publicationStartYearMonth
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication start year-month"@en ;
+        rdfs:range        xsd:gYearMonth ;
+        sg:definition     "A yearMonth for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYearMonth" ;
+        skos:definition   "The :publicationStartYearMonth property specifies the year and month date of a publication's start as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication start date."@en ;
+        skos:prefLabel    "publication start year-month"@en .
+
+sg:hasArticleTypeMapping
+        a                   owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has article type mapping"@en ;
+        sg:definition       "An article type related to the subject."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has article type mapping"@en .
+
+sg:class  a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "class"@en ;
+        sg:definition       "A class term."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :class property specifies the class a domain model refers to."@en ;
+        skos:prefLabel      "class"@en .
+
+sg:imageList  a             owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "image list"@en ;
+        rdfs:range          rdf:List ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "The :imageList property specifies an ordered list of images for a publication."@en ;
+        skos:prefLabel      "image list"@en .
+
+sg:Organization  a        owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Organization"@en ;
+        rdfs:subClassOf   sg:Agent ;
+        sg:isTerm         true ;
+        sg:type           "organizations" ;
+        skos:definition   "The :Organization class represents an organised body of people normally having a legal status."@en ;
+        skos:prefLabel    "Organization"@en .
+
+sg:confStartDate  a             owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference start date"@en ;
+        rdfs:range              xsd:date ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confStartDate ;
+        skos:definition         "The :confStartDate property specifies ..."@en ;
+        skos:prefLabel          "conference start date"@en .
+
+sg:Publisher  a           owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publisher"@en ;
+        rdfs:subClassOf   sg:Organization ;
+        sg:hasGraph       sgg:publishers ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/publishers/> ;
+        sg:type           "publishers" ;
+        skos:definition   "The :Publisher class represents organizations involved in the publishing business."@en ;
+        skos:prefLabel    "Publisher"@en .
+
+sg:xmlUriTemplate  a      owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "XML URI template"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A source URI template for an XML document."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        owl:deprecated    true ;
+        skos:definition   "The :metadataUriTemplate property specifies a source URI template for an XML document."@en ;
+        skos:prefLabel    "XML URI template"@en .
+
+sg:Image  a               owl:Class ;
+        rdfs:comment      "A class for Image objects." ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Image"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:images ;
+        sg:isTerm         true ;
+        sg:type           "images" ;
+        skos:definition   "The :Image class represents a graphical element within a publication."@en ;
+        skos:prefLabel    "Image"@en .
+
+sg:xmlId  a               owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "XML ID"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An ID assigned to an XML element."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :xmlId property specifies an ID assigned to an XML element."@en ;
+        skos:prefLabel    "XML ID"@en .
+
+sg:npgid  a               owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "NPG ID"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "NPG ID"@en .
+
+sg:Collection  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Collection"@en ;
+        rdfs:subClassOf   sg:Document ;
+        sg:hasGraph       sgg:collections ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/collections/> ;
+        sg:type           "collections" ;
+        owl:disjointWith  sg:Article ;
+        skos:definition   "The :Collection class represents a group of documents which are published (or republished) as part of a new composite publication. Often these documents have been published elsewhere, but since they share a common theme or belong to an identifiable narrative it is of interest to publish them again within a different container. (See also :Issue.)"@en ;
+        skos:prefLabel    "Collection"@en .
+
+sg:testMarkLogicCollection
+        a                 owl:AnnotationProperty ;
+        rdfs:domain       sg:AssetMap ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "test MarkLogic collection"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A test collection label used in MarkLogic."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        owl:deprecated    true ;
+        skos:definition   "(DEPRECATED TERM)"@en ;
+        skos:prefLabel    "test MarkLogic collection"@en .
+
+sg:Component  a           owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Component"@en ;
+        rdfs:subClassOf   sg:Publication ;
+        sg:isTerm         true ;
+        sg:type           "components" ;
+        owl:disjointWith  sg:Document , sg:Serial , sg:Dataset ;
+        skos:definition   "The :Component class groups together all individuals that normally come into existence as part of a :Document."@en ;
+        skos:prefLabel    "Component"@en .
+
+sg:hasPublicationGroup
+        a                   owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has publication group"@en ;
+        rdfs:range          sg:PublicationGroup ;
+        sg:definition       "A publication group related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:PublicationGroup" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has publication group"@en .
+
+sg:hasCollectionType  a     owl:ObjectProperty ;
+        rdfs:domain         sg:Collection ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has collection type"@en ;
+        rdfs:range          sg:CollectionType ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:CollectionType" ;
+        skos:definition     "The :hasCollectionType relates a collection to a collection-type."@en ;
+        skos:prefLabel      "has collection type"@en .
+
+sg:subjectPath  a           owl:DatatypeProperty ;
+        rdfs:domain         sg:Journal ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "subject path"@en ;
+        rdfs:range          rdfs:Literal ;
+        sg:definition       "A list of subjects in a path hierarchy."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "The :subjectPath property specifies the position of a term within the subjects taxonomy by providing a path with the IDs of its successors."@en ;
+        skos:prefLabel      "subject path"@en .
+
+sg:isCorresponding  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Contributor ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is corresponding"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a contributor is a corresponding author."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isCorresponding property marks whether a contributor is a corresponding author."@en ;
+        skos:prefLabel    "is corresponding"@en .
+
+sg:bodyXml  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "body (XML)"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A body string for a resource in XML format."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :bodyXml property specifies the main body content of a publication as an XML string."@en ;
+        skos:prefLabel    "body (XML)"@en .
+
+sg:coverYear  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "cover year"@en ;
+        rdfs:range        xsd:gYear ;
+        sg:definition     "A year for a publication (e.g. issue) cover."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYear" ;
+        skos:definition   "The :coverDate property specifies the year date of a publication as it is displayed on its cover."@en ;
+        skos:note         "This is not necessarily the actual date of publication."@en ;
+        skos:prefLabel    "cover year"@en .
+
+sg:Journal  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Journal"@en ;
+        rdfs:subClassOf   sg:Serial ;
+        sg:hasGraph       sgg:journals ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/journals/> ;
+        sg:type           "journals" ;
+        owl:disjointWith  sg:Blog ;
+        skos:definition   "The :Journal class represents a scholarly serial publication, considered from both the scholarly and the commercial perspectives. Thus a journal is more than the sum of its publications (i.e. the set of all the :Issue instances it has published); it is an entity characterised by many properties, e.g. its founders, its impact factor, etc."@en ;
+        skos:prefLabel    "Journal"@en .
+
+sg:sectionLevel  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Section ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "section level"@en ;
+        rdfs:range        xsd:integer ;
+        sg:definition     "An order number for a section in a collection."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :sectionLevel property specifies the level number of a section."@en ;
+        skos:prefLabel    "section level"@en .
+
+lodp:subtitle  owl:equivalentProperty  sg:subtitle .
+
+sg:hasCurrentIssue  a       owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has current issue"@en ;
+        rdfs:range          sg:Issue ;
+        rdfs:subPropertyOf  sg:hasIssue ;
+        sg:definition       "A current issue related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Issue" ;
+        skos:definition     "The :hasCurrentIssue property relates a publication to the current issue."@en ;
+        skos:prefLabel      "has current issue"@en .
+
+sg:PhysicalRepository
+        a                 owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Physical repository"@en ;
+        rdfs:subClassOf   sg:Repository ;
+        sg:hasGraph       sgg:physical-repositories ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/physical-repositories/> ;
+        sg:type           "physical-repositories" ;
+        owl:disjointWith  sg:DigitalRepository ;
+        skos:definition   "The :PhysicalRepository class represents an archive hosting physical specimens."@en ;
+        skos:prefLabel    "Physical repository"@en .
+
+sg:priceBand  a           owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "price band"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A price band assigned to a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "price band"@en .
+
+sg:Article  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Article"@en ;
+        rdfs:subClassOf   sg:Document ;
+        sg:hasGraph       sgg:articles ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/articles/> ;
+        sg:type           "articles" ;
+        skos:definition   "The :Article class represents a scholarly work normally published as an item of a serial publication. In particular, this concept refers to the abstract notion of an article, rather than any of its realisations after it becomes embodied via a physical medium."@en ;
+        skos:note         "With reference to the FRBR model [http://www.ifla.org/publications/functional-requirements-for-bibliographic-records], an :Article can be mapped directly to the frbr:Expression concept. It is worth noting though that within the SciGraph Core Ontology we do not have any notion of a frbr:Work. Hence multiple versions of the same article (e.g. language translations, or revisions) are characterised as such simply by means of some relationship."@en ;
+        skos:prefLabel    "Article"@en .
+
+sg:     a                              owl:Ontology ;
+        rdfs:label                     "SciGraph Core Ontology"@en ;
+        sg:webpage                     <http://www.scigraph.com/> ;
+        dc:creator                     "Tony Hammond <mailto:tony.hammond@macmillan.com>" , "Michele Pasin <mailto:michele.pasin@macmillan.com>" ;
+        dc:date                        "2016-06-29T08:38:15Z" ;
+        dc:publisher                   "Springer Nature" ;
+        dc:rights                      "This work is distributed under a Creative Commons Attribution 4.0 (CC BY 4.0) License <http://creativecommons.org/licenses/by/4.0/>."@en ;
+        dcterms:license                <http://creativecommons.org/licenses/by/4.0/> ;
+        vann:preferredNamespacePrefix  "sg" ;
+        vann:preferredNamespaceUri     "http://name.scigraph.com/terms/" ;
+        owl:imports                    <http://www.w3.org/2004/02/skos/core> ;
+        owl:versionInfo                "1.0.0-SNAPSHOT" ;
+        skos:definition                "The SciGraph Core Ontology is a formal model providing definitions for the key concepts of interest to content publishing at Springer Nature."@en ;
+        skos:note                      "For further information about this ontology or for any queries please use the contact address <mailto:>."@en ;
+        skos:prefLabel                 "SciGraph Core Ontology"@en .
+
+sg:BlogPost  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Blog post"@en ;
+        rdfs:subClassOf   sg:Document ;
+        sg:hasGraph       sgg:blog-posts ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/blog-posts/> ;
+        sg:type           "blog-posts" ;
+        skos:definition   "The :BlogPost class represents an informal work published as an item of a :Blog."@en ;
+        skos:prefLabel    "Blog post"@en .
+
+sg:Document  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Document"@en ;
+        rdfs:subClassOf   sg:Publication ;
+        sg:isTerm         true ;
+        sg:type           "documents" ;
+        owl:disjointWith  sg:Component , sg:Serial ;
+        skos:definition   "The :Document class groups together all publications which were created to be distributed and consumed as individual, self-contained entities."@en ;
+        skos:prefLabel    "Document"@en .
+
+sg:hasExternalContributor
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has external contributor"@en ;
+        rdfs:range          sg:ExternalContributor ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:ExternalContributor" ;
+        skos:definition     "The :hasExternalArticle property relates an article to an external contributor."@en ;
+        skos:prefLabel      "has external contributor"@en .
+
+sg:BlobAsset  a           owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Blob asset"@en ;
+        rdfs:subClassOf   sg:Asset ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:type           "blob-assets" ;
+        skos:definition   "The :BlobAsset class groups together all assets used to store blobs - i.e. documents, images, or other media objects - within digital systems."@en ;
+        skos:prefLabel    "Blob asset"@en .
+
+sg:hasDblpId  a                 owl:ObjectProperty ;
+        rdfs:domain             sg:ConferenceSeries ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "has DBLP ID"@en ;
+        rdfs:range              rdfs:Literal ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:hasDBLPID ;
+        skos:definition         "The :hasDblpId property specifies ..."@en ;
+        skos:prefLabel          "has DBLP ID"@en .
+
+sg:publicationEndDate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "publication end date"@en ;
+        rdfs:range          xsd:date ;
+        rdfs:subPropertyOf  sg:publicationDate ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "xsd:date" ;
+        skos:definition     "The :publicationEndDate property specifies the full date of a publication's end as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication end date."@en ;
+        skos:prefLabel      "publication end date"@en .
+
+sg:hasBroaderSubject  a     owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has broader subject"@en ;
+        rdfs:range          sg:Subject ;
+        rdfs:subPropertyOf  sg:hasSubject ;
+        sg:definition       "A (broader) subject term related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Subject" ;
+        skos:definition     "The :hasBroaderSubject property relates a publication to a broader subject term than it is actually classified with."@en ;
+        skos:prefLabel      "has broader subject"@en .
+
+sg:definition  a          owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "definition"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "The :definition property assigns a definition string for review purposes."@en , "A definition."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        owl:deprecated    "true" ;
+        skos:definition   "(DEPRECATED TERM)"@en ;
+        skos:prefLabel    "definition"@en .
+
+sg:publicationYearMonth
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication year-month"@en ;
+        rdfs:range        xsd:gYearMonth ;
+        sg:definition     "A yearMonth for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYearMonth" ;
+        skos:definition   "The :publicationYearMonth property specifies the year and month date of a publication as a string."@en ;
+        skos:prefLabel    "publication year-month"@en .
+
+sg:ReviewState  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Review state"@en ;
+        rdfs:subClassOf   sg:PublicationState ;
+        sg:hasGraph       sgg:review-states ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/review-states/> ;
+        sg:type           "review-states" ;
+        skos:definition   "The :ReviewState class provides a categorisation of the possible states a document may have as a result of a reviewing process. For example, whether it’s been 'Received' or 'Accepted'.  This categorisation is implemented as a SKOS vocabulary."@en ;
+        skos:prefLabel    "Review state"@en .
+
+sg:Serial  a              owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Serial"@en ;
+        rdfs:subClassOf   sg:Publication ;
+        sg:isTerm         true ;
+        sg:type           "serials" ;
+        owl:disjointWith  sg:Document , sg:Dataset , sg:Component ;
+        skos:definition   "The :Serial class represents publications which appear in a new edition on a regular schedule. For example, a journal, a magazine or a blog. The :PublishEvent class is used to provide more details about the time, place and other contextual information relevant to when a new edition gets published."@en ;
+        skos:prefLabel    "Serial"@en .
+
+sg:hasIssue  a              owl:ObjectProperty ;
+        rdfs:domain         sg:PublicationEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has issue"@en ;
+        rdfs:range          sg:Issue ;
+        sg:definition       "An issue related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Issue" ;
+        skos:definition     "The :hasIssue property relates a publication-event to an issue."@en ;
+        skos:prefLabel      "has issue"@en .
+
+lodc:Conference  owl:equivalentClass  sg:Conference .
+
+sg:isMaestroPlatform  a   owl:AnnotationProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is Maestro platform"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isMaestroPlatfrom property marks whether a publication is on the Maestro platform."@en ;
+        skos:prefLabel    "is Maestro platform"@en .
+
+sg:hasSummaryType  a        owl:ObjectProperty ;
+        rdfs:domain         sg:Summary ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has summary type"@en ;
+        rdfs:range          sg:SummaryType ;
+        sg:definition       "A summary type related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:SummaryType" ;
+        skos:definition     "The :hasSummaryType property relates a summary to a summary-type classification."@en ;
+        skos:prefLabel      "has summary type"@en .
+
+sg:Conference  a             owl:Class ;
+        rdfs:isDefinedBy     sg: ;
+        rdfs:label           "Conference"@en ;
+        rdfs:subClassOf      sg:Event ;
+        sg:hasGraph          sgg:conferences ;
+        sg:isTerm            true ;
+        sg:isVocabulary      false ;
+        sg:namespace         <http://name.scigraph.com/conferences/> ;
+        sg:type              "conferences" ;
+        owl:equivalentClass  lodc:Conference ;
+        skos:definition      "The :Conference class represents ..."@en ;
+        skos:prefLabel       "Conference"@en .
+
+sg:ruleNumber  a          owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "rule number"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An order number for a rule."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :ruleNumber property specifies an order number to apply to a rule for execution."@en ;
+        skos:prefLabel    "rule number"@en .
+
+sg:webtrendsId  a         owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Webtrends ID"@en ;
+        rdfs:range        xsd:integer ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :webtrendsId property specifies a number used by the Webtrends analytics software for a specific journal."@en ;
+        skos:note         "This property is a legacy from the PSET application."@en ;
+        skos:prefLabel    "Webtrends ID"@en .
+
+lodp:hasConference  owl:equivalentProperty
+                sg:hasConference .
+
+sg:onProperty  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "on property"@en ;
+        rdfs:range          rdfs:Property ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Property" ;
+        skos:definition     "The :onClass property relates a binding within a contract to an rdfs:Property."@en ;
+        skos:prefLabel      "on property"@en .
+
+sg:graph  a                 owl:AnnotationProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "graph"@en ;
+        sg:definition       "A graph name."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Graph" ;
+        skos:definition     "The :graph property specifies the full URI of any graph."@en ;
+        skos:prefLabel      "graph"@en .
+
+sg:hasAsset  a              owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has asset"@en ;
+        rdfs:range          sg:Asset ;
+        sg:definition       "An asset related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Asset" ;
+        skos:definition     "The :hasAsset property relates a publication to an asset."@en ;
+        skos:prefLabel      "has asset"@en .
+
+sg:datetime  a            owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "datetime"@en ;
+        sg:definition     "A datetime for annotation."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:dateTime" ;
+        skos:definition   "The :datetime property specifies a system-generated datetime for an entity."@en ;
+        skos:prefLabel    "datetime"@en .
+
+sg:publicationStartDate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "publication start date"@en ;
+        rdfs:range          xsd:date ;
+        rdfs:subPropertyOf  sg:publicationDate ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "xsd:date" ;
+        skos:definition     "The :publicationStartDate property specifies the full date of a publication's start as a string. Note that this date relates to the publisher holdings which may not be the same as the actual publication start date."@en ;
+        skos:prefLabel      "publication start date"@en .
+
+lodp:scopusSearchDate
+        owl:equivalentProperty  sg:scopusSearchDate .
+
+sg:PublicationEvent  a    owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publication event"@en ;
+        rdfs:subClassOf   sg:Event ;
+        sg:isTerm         true ;
+        sg:type           "publication-events" ;
+        skos:definition   "The :PublicationEvent class groups together events that happen within the publishing process, broadly conceived. For example, the submission of an article, or the acceptance of a paper."@en ;
+        skos:prefLabel    "Publication event"@en .
+
+sg:isTerm  a              owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is term"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a term is a SciGraph Core Ontology term."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isTerm property marks whether a term is a Core Ontology term."@en ;
+        skos:prefLabel    "is term"@en .
+
+sg:Video  a               owl:Class ;
+        rdfs:comment      "A class for Video objects." ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Video"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:videos ;
+        sg:isTerm         true ;
+        sg:type           "videos" ;
+        skos:definition   "The :Video class represents a video element within a publication."@en ;
+        skos:prefLabel    "Video"@en .
+
+sg:Storage  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Storage"@en ;
+        rdfs:subClassOf   sg:Thing ;
+        sg:hasGraph       sgg:storages ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/storages/> ;
+        sg:type           "storages" ;
+        skos:definition   "The :Storage class represents ..."@en ;
+        skos:prefLabel    "Storage"@en .
+
+sg:hasFigure  a             owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has figure"@en ;
+        rdfs:range          sg:Figure ;
+        sg:definition       "A figure related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Figure" ;
+        skos:definition     "The :hasFigure property relates a publication to a figure."@en ;
+        skos:prefLabel      "has figure"@en .
+
+sg:targetUriTemplate  a   owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "target URI template"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A target URI template for a product."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "target URI template"@en .
+
+sg:productId  a             owl:DatatypeProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "product ID"@en ;
+        rdfs:range          xsd:integer ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        skos:definition     "The :productId property specifies the ID for a product."@en ;
+        skos:prefLabel      "product ID"@en .
+
+lodp:isScopusSearchScheduled
+        owl:equivalentProperty  sg:isScopusSearchScheduled .
+
+sg:BookChapter  a            owl:Class ;
+        rdfs:isDefinedBy     sg: ;
+        rdfs:label           "Book chapter"@en ;
+        rdfs:subClassOf      sg:Publication ;
+        sg:hasGraph          sgg:book-chapters ;
+        sg:isTerm            true ;
+        sg:isVocabulary      false ;
+        sg:namespace         <http://name.scigraph.com/book-chapters/> ;
+        sg:type              "book-chapters" ;
+        owl:equivalentClass  lodc:BookChapter ;
+        skos:definition      "The :BookChapter class represents ..."@en ;
+        skos:prefLabel       "Book chapter"@en .
+
+sg:sortNumber  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "sort number"@en ;
+        rdfs:range        xsd:integer ;
+        sg:definition     "A sort number for an entity."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :sortLetter property specifies the sequence number of an entity to facilitate sort operations."@en ;
+        skos:prefLabel    "sort number"@en .
+
+lodp:firstPage  owl:equivalentProperty  sg:firstPage .
+
+sg:relation  a              owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "relation"@en ;
+        rdfs:range          sg:Publication ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :relation property relates a publication to a publication."@en ;
+        skos:prefLabel      "relation"@en .
+
+sg:hasConference  a             owl:ObjectProperty ;
+        rdfs:domain             sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "has conference"@en ;
+        rdfs:range              sg:Conference ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:hasConference ;
+        skos:definition         "The :hasConference property specifies ..."@en ;
+        skos:prefLabel          "has conference"@en .
+
+sg:Event  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Event"@en ;
+        rdfs:subClassOf   sg:Thing ;
+        sg:isTerm         true ;
+        sg:type           "events" ;
+        skos:definition   "The :Event class groups together events of varying granularity. Events differ from :Concept entities because they have an extension in time; they differ from :Asset entities because they do not have an extension in space."@en ;
+        skos:prefLabel    "Event"@en .
+
+sg:isOpenAccess  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Article ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is open access"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isOpenAccess property marks whether an article has an open access license."@en ;
+        skos:prefLabel    "is open access"@en .
+
+sg:isTransitionJournal
+        a                 owl:AnnotationProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is transition journal"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether journal is in transition to new platform."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isTransitionJournal property marks whether a journal is in transition to the new platform."@en ;
+        skos:prefLabel    "is transition journal"@en .
+
+sg:date  a                owl:DatatypeProperty ;
+        rdfs:domain       sg:Event ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "date"@en ;
+        rdfs:range        xsd:date ;
+        sg:definition     "A date for an event."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:date" ;
+        skos:definition   "The :date property specifies the full date of an event as a string."@en ;
+        skos:prefLabel    "date"@en .
+
+sg:number  a              owl:DatatypeProperty ;
+        rdfs:domain       sg:Component ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "number"@en ;
+        rdfs:range        xsd:integer ;
+        sg:definition     "An order number for an entity in a list."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :number property specifies a sequence number for a component such as a figure."@en ;
+        skos:prefLabel    "number"@en .
+
+lodp:hasSeries  owl:equivalentProperty  sg:hasSeries .
+
+sg:ImageAsset  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Image asset"@en ;
+        rdfs:subClassOf   sg:BlobAsset ;
+        sg:hasGraph       sgg:image-assets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/image-assets/> ;
+        sg:type           "image-assets" ;
+        skos:definition   "The :ImageAsset class represents the physical rendition of an image asset in an encoded format."@en ;
+        skos:prefLabel    "Image asset"@en .
+
+sg:eisbn  a                     owl:DatatypeProperty ;
+        rdfs:domain             sg:Book , sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "eISBN"@en ;
+        rdfs:range              rdfs:Literal ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:EISBN ;
+        skos:definition         "The :eisbn property specifies ..."@en ;
+        skos:prefLabel          "eISBN"@en .
+
+sg:articleType  a         owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "article type"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A type label for an article."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :articleType property specifies a string value for an article-type."@en ;
+        skos:prefLabel    "article type"@en .
+
+sg:Graph  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Graph"@en ;
+        rdfs:subClassOf   sg:Dataset ;
+        sg:hasGraph       sgg:graphs ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      sgg: ;
+        sg:type           "graphs" ;
+        owl:disjointWith  sg:KnowledgeBase ;
+        skos:definition   "The :Graph class represents a collection of related sets of information modelled in RDF and organized as a named graph."@en ;
+        skos:note         "Each Graph instance is associated with instances of a particular class. For example, the 'sgg:articles' :Graph instance is a named graph which contains all the instances of the :Article class. The :Graph instances themselves are then used to describe the RDF graph, providing sometimes known as an RDF annotation. This may furnish various kinds of information about the RDF graph: provenance, rights, metrics, validation reports, etc."@en ;
+        skos:prefLabel    "Graph"@en .
+
+sg:volumeEnd  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "volume end"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An end volume for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :volumeEnd property specifies the end volume for a serial publication. Note that this :volumeEnd property relates to the publisher holdings which may not be the same as the actual publication volume end."@en ;
+        skos:prefLabel    "volume end"@en .
+
+sg:KnowledgeBase  a       owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Knowledge base"@en ;
+        rdfs:subClassOf   sg:Dataset ;
+        sg:hasGraph       sgg:knowledge-bases ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/knowledge-bases/> ;
+        sg:type           "knowledge-bases" ;
+        owl:disjointWith  sg:Graph ;
+        skos:definition   "The :KnowledgeBase class represents a collection of related sets of information modelled in RDF and consisting of various objects, e.g. one or more graphs, other RDF datasets etc."@en ;
+        skos:note         "Differently from datasets, knowledge-bases refer to a composite dataset intended to be used as a consistent whole."@en ;
+        skos:prefLabel    "Knowledge base"@en .
+
+sg:Database  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Database"@en ;
+        rdfs:subClassOf   sg:Storage ;
+        sg:hasGraph       sgg:databases ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/databases/> ;
+        sg:type           "databases" ;
+        skos:definition   "The :Database class represents any structured set of data stored in a computer."@en ;
+        skos:prefLabel    "Database"@en .
+
+sg:techniquePath  a         owl:DatatypeProperty ;
+        rdfs:domain         sg:Journal ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "technique path"@en ;
+        rdfs:range          rdfs:Literal ;
+        sg:definition       "A list of techniques in a path hierarchy."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "technique path"@en .
+
+sg:coverYearMonth  a      owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "cover year-month"@en ;
+        rdfs:range        xsd:gYearMonth ;
+        sg:definition     "A yearMonth for a publication (e.g. issue) cover."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYearMonth" ;
+        skos:definition   "The :coverDate property specifies the year and month date of a publication as it is displayed on its cover."@en ;
+        skos:note         "This is not necessarily the actual date of publication."@en ;
+        skos:prefLabel    "cover year-month"@en .
+
+sg:SeverityLevel  a       owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Severity level"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:severity-levels ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/severity-levels/> ;
+        sg:type           "severity-levels" ;
+        skos:definition   "The :SeverityLevel class represents a system status. The syslog standard (RFC 5424) for computer message logging is used to provide a reference set of states. This categorisation is implemented as a SKOS concept scheme."@en ;
+        skos:prefLabel    "Severity level"@en .
+
+sg:Type  a                owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Type"@en ;
+        rdfs:subClassOf   sg:Concept ;
+        sg:isTerm         true ;
+        sg:type           "types" ;
+        skos:definition   "The :Type class groups together  all domain-specific categorisations relevant to the Springer Nature publishing world."@en ;
+        skos:note         "All of the :Type categorisations are implemented as self-contained reusable SKOS vocabularies (although not all of them are taxonomies in the strict sense of hierarchical vocabularies)."@en ;
+        skos:prefLabel    "Type"@en .
+
+sg:treeDepth  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "tree depth"@en ;
+        rdfs:range        xsd:integer ;
+        sg:definition     "A depth level within a taxonomy tree."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :treeDepth property specifies the depth of a term within a taxonomy tree."@en ;
+        skos:note         "This property is generally computed by a build-time rule"@en ;
+        skos:prefLabel    "tree depth"@en .
+
+sg:titleXml  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "title (XML)"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A title element in XML format."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :titleXml property specifies a title to the main body content of a publication as an XML string."@en ;
+        skos:prefLabel    "title (XML)"@en .
+
+sg:Blog  a                owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Blog"@en ;
+        rdfs:subClassOf   sg:Serial ;
+        sg:hasGraph       sgg:blogs ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/blogs/> ;
+        sg:type           "blogs" ;
+        owl:disjointWith  sg:Journal ;
+        skos:definition   "The :Blog class represents an informal serial publication."@en ;
+        skos:prefLabel    "Blog"@en .
+
+sg:figureList  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "figure list"@en ;
+        rdfs:range          rdf:List ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "The :figureList property specifies an ordered list of figures for a publication."@en ;
+        skos:prefLabel      "figure list"@en .
+
+sg:sortWeight  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Journal ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "sort weight"@en ;
+        rdfs:range        xsd:decimal ;
+        sg:definition     "A sort weight for an entity."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:decimal" ;
+        skos:definition   "The :sortWeight property specifies a weighting factor for ranking journals in search results."@en ;
+        skos:prefLabel    "sort weight"@en .
+
+sg:Thing  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Thing"@en ;
+        rdfs:subClassOf   owl:Thing ;
+        sg:isTerm         true ;
+        sg:type           "things" ;
+        skos:definition   "The :Thing class groups together all individuals used by Springer Nature within the Springer Nature publishing world."@en ;
+        skos:prefLabel    "Thing"@en .
+
+sg:hasImageAsset  a         owl:ObjectProperty ;
+        rdfs:domain         sg:Image ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has image asset"@en ;
+        rdfs:range          sg:ImageAsset ;
+        sg:definition       "An asset related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Asset" ;
+        skos:definition     "The :hasImageAsset property relates an image to an image-asset."@en ;
+        skos:prefLabel      "has image asset"@en .
+
+sg:orcid  a                 owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "ORCID"@en ;
+        rdfs:seeAlso        <http://orcid.org/> ;
+        sg:definition       "An ORCID identifier assigned to a contributor."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :orcid property relates a publication to an ORCID record."@en ;
+        skos:note           "As we currently have no persons as such registered in our data model, we use the :orcid property with the :Contributor publication component that proxies for a person."@en ;
+        skos:prefLabel      "ORCID"@en .
+
+sg:onInstanceOf  a          owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "on instance of"@en ;
+        rdfs:range          owl:Class ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "owl:Class" ;
+        skos:definition     "The :onInstanceOf property relates a binding within a contract to an owl:Class."@en ;
+        skos:prefLabel      "on instance of"@en .
+
+sg:availableAt  a               owl:DatatypeProperty ;
+        rdfs:domain             sg:Book , sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "available at"@en ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:isAvailableAt ;
+        skos:definition         "The :availableAt property specifies ..."@en ;
+        skos:prefLabel          "available at"@en .
+
+sg:CollectionType  a      owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Collection type"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:collection-types ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/collection-types/> ;
+        sg:type           "collection-types" ;
+        skos:definition   "The :CollectionType class represents a ..."@en ;
+        skos:prefLabel    "Collection type"@en .
+
+sg:Item  a                owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Item"@en ;
+        rdfs:subClassOf   sg:AggregationEvent ;
+        sg:hasGraph       sgg:items ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/items/> ;
+        sg:type           "items" ;
+        skos:definition   "The :Item class represents the state of a document after this has been added to a :Collection by someone, at a specific time, and within a specific sequence."@en ;
+        skos:prefLabel    "Item"@en .
+
+lodp:confCity  owl:equivalentProperty  sg:confCity .
+
+sg:hasPublication  a        owl:ObjectProperty ;
+        rdfs:domain         sg:PublicationEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has publication"@en ;
+        rdfs:range          sg:Publication ;
+        sg:definition       "A publication related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Publication" ;
+        skos:definition     "The :hasPublication property relates a publication-event to a publication."@en ;
+        skos:prefLabel      "has publication"@en .
+
+sg:citeNum  a             owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "cite num"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A sequence number for a citation."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "cite num"@en .
+
+sg:doiLink  a             owl:ObjectProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "DOI link"@en ;
+        sg:definition     "A link to a DOI-named resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :doiLink property relates a publication to the URI minted from the DOI."@en ;
+        skos:prefLabel    "DOI link"@en .
+
+sg:Metrics  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Metrics"@en ;
+        rdfs:subClassOf   sg:Annotation ;
+        sg:isTerm         true ;
+        sg:namespace      <http://name.scigraph.com/metrics/> ;
+        sg:type           "metrics" ;
+        skos:definition   "The :Metrics class represents a generic quantitative measurement taken so to gauge the size or impact of a phenomena. "@en ;
+        skos:prefLabel    "Metrics"@en .
+
+sg:partnerName  a         owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "partner name"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :partnerName property specifies a string representing a partner owner name (implicitly referenced from the :ownership property)."@en ;
+        skos:note         "This property is a legacy from the PSET application."@en ;
+        skos:prefLabel    "partner name"@en .
+
+sg:credit  a              owl:DatatypeProperty ;
+        rdfs:domain       sg:Image ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "credit"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A credit string for a resource."@en ;
+        sg:isRepeatable   true ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :credit property specifies the photographer, illustrator, or copyright holder for an image in a publication."@en ;
+        skos:prefLabel    "credit"@en .
+
+sg:ruleName  a            owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "rule name"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An order number for a rule."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :ruleName property specifies a name to access a rule."@en ;
+        skos:prefLabel    "rule name"@en .
+
+lodp:chapterOf  owl:equivalentProperty  sg:chapterOf .
+
+sg:itemReferenceList  a     owl:ObjectProperty ;
+        rdfs:domain         sg:Collection ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "item reference list"@en ;
+        rdfs:range          rdf:List ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "The :itemReferenceList property specifies an ordered list of item references."@en ;
+        skos:prefLabel      "item reference list"@en .
+
+sg:subtitle  a                  owl:DatatypeProperty ;
+        rdfs:domain             sg:Book , sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "subtitle"@en ;
+        rdfs:range              rdf:langString ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:subtitle ;
+        skos:definition         "The :subtitle property specifies ..."@en ;
+        skos:prefLabel          "subtitle"@en .
+
+sg:onOntology  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "on ontology"@en ;
+        rdfs:range          owl:Ontology ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "owl:Ontology" ;
+        skos:definition     "The :onClass property relates a binding within a contract to an owl:Ontology."@en ;
+        skos:prefLabel      "on ontology"@en .
+
+sg:oldCode  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "old code"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :oldCode property specifies a number or string previously used by the domain ontologies as an ID for an entity."@en ;
+        skos:prefLabel    "old code"@en .
+
+sg:Website  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Website"@en ;
+        rdfs:subClassOf   sg:Publication ;
+        sg:hasGraph       sgg:websites ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/websites/> ;
+        sg:type           "websites" ;
+        skos:definition   "The :Website class represents a site that maintains one or more pages on the Web."@en ;
+        skos:prefLabel    "Website"@en .
+
+sg:hasMetricsEvent  a       owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has metrics event"@en ;
+        rdfs:range          sg:MetricsEvent ;
+        sg:definition       "A metrics event related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:hasMetricsEvent" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has metrics event"@en .
+
+sg:Contributor  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Contributor"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:contributors ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/contributors/> ;
+        sg:type           "contributors" ;
+        skos:definition   "The :Contributor class represents a document component detailing a contributor (personal or corporate) to the work being published. This class is disjoint from the :Agent class. Hence a :Contributor instance can be described as the name used to refer to a person or organisation in the context of a publication."@en ;
+        skos:prefLabel    "Contributor"@en .
+
+lodc:ConferenceSeries
+        owl:equivalentClass  sg:ConferenceSeries .
+
+sg:hasPublisher  a          owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has publisher"@en ;
+        rdfs:range          sg:Publisher ;
+        sg:definition       "A publisher related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Publisher" ;
+        skos:definition     "The :hasPublisher property relates a publication to the organization that publishes it."@en ;
+        skos:prefLabel      "has publisher"@en .
+
+sg:hasReviewEvent  a        owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has review event"@en ;
+        rdfs:range          sg:ReviewEvent ;
+        sg:definition       "A review event related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:hasReviewEvent" ;
+        skos:definition     "The :hasReviewEvent property relates a publication to a review-event that describes some recognized change in the status of a publication's review history."@en ;
+        skos:prefLabel      "has review event"@en .
+
+lodp:confAcronym  owl:equivalentProperty
+                sg:confAcronym .
+
+sg:hasRoot  a               owl:ObjectProperty ;
+        rdfs:domain         sg:Type ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has root"@en ;
+        rdfs:range          sg:Type ;
+        sg:definition       "A subject toplevel term for a subject term."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Subject" ;
+        skos:definition     "The :hasRoot property relates a :Type instance to a toplevel :Type instance within the same domain model."@en ;
+        skos:prefLabel      "has root"@en .
+
+sg:curator  a             owl:DatatypeProperty ;
+        rdfs:domain       sg:Collection ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "curator"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :curator property specifies the name of a curator for a collection."@en ;
+        skos:prefLabel    "curator"@en .
+
+sg:sortLabel  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "sort label"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A sort label for an entity."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :sortLabel property specifies a normalized label for the entity name to facilitate sort operations."@en ;
+        skos:note         "This property is generally computed from a build-time rule."@en ;
+        skos:prefLabel    "sort label"@en .
+
+sg:Section  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Section"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:sections ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/sections/> ;
+        sg:type           "sections" ;
+        skos:definition   "The :Section class represents a part of a document."@en ;
+        skos:prefLabel    "Section"@en .
+
+sg:pcode  a               owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "pcode"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A code assigned to a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :pcode property specifies a unique ID for a publication."@en ;
+        skos:note         "The term :pcode derives from product code and has been used as a unique ID for publications such as journals, blogs, etc."@en ;
+        skos:prefLabel    "pcode"@en .
+
+sg:ProductMarketCode  a   owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Product market code"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:product-market-codes ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/product-market-codes/> ;
+        sg:type           "product-market-codes" ;
+        skos:definition   "The :ProductMarketCode class represents a ..."@en ;
+        skos:prefLabel    "Product market code"@en .
+
+sg:timestamp  a           owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "timestamp"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A timestamp."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :timestamp property specifies a generic timestamp for an object."@en ;
+        skos:prefLabel    "timestamp"@en .
+
+sg:isCurated  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Image ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is curated"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether an object is editiorially managed."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isCurated property marks whether an image is editiorially managed."@en ;
+        skos:prefLabel    "is curated"@en .
+
+sg:chapterRegistrationDate
+        a                       owl:DatatypeProperty ;
+        rdfs:domain             sg:BookChapter ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "chapter registration date"@en ;
+        rdfs:range              xsd:date ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:chapterRegistrationDate ;
+        skos:definition         "The :chapterRegistrationDate property specifies ..."@en ;
+        skos:prefLabel          "chapter registration date"@en .
+
+sg:XmlAsset  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "XML asset"@en ;
+        rdfs:subClassOf   sg:Asset ;
+        sg:hasGraph       sgg:xml-assets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/xml-assets/> ;
+        sg:type           "xml-assets" ;
+        skos:definition   "The :XmlAsset class represents the physical rendition of a document asset in XML format."@en ;
+        skos:prefLabel    "XML asset"@en .
+
+sg:dateStart  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "date start"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A start date for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :dateStart property specifies the start date for a serial publication. Note that this date relates to the publisher holdings which may not be the same as the actual publication start date."@en ;
+        skos:prefLabel    "date start"@en .
+
+sg:database  a            owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "database"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A database (abbreviation)."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "database"@en .
+
+sg:hasCollection  a         owl:ObjectProperty ;
+        rdfs:domain         sg:PublicationEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has collection"@en ;
+        rdfs:range          sg:Collection ;
+        sg:definition       "A collection related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Collection" ;
+        skos:definition     "The :hasCollection property relates a publication-event to a collection."@en ;
+        skos:prefLabel      "has collection"@en .
+
+sg:confSeriesName  a            owl:DatatypeProperty ;
+        rdfs:domain             sg:ConferenceSeries ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference series name"@en ;
+        rdfs:range              rdf:langString ;
+        rdfs:subPropertyOf      rdfs:label ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confSeriesName ;
+        skos:definition         "The :confSeriesName property specifies ..."@en ;
+        skos:prefLabel          "conference series name"@en .
+
+lodp:bookSeriesAcronym
+        owl:equivalentProperty  sg:bookSeriesAcronym .
+
+sg:hasBroaderArticleType
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has broader article-type"@en ;
+        rdfs:range          sg:ArticleType ;
+        rdfs:subPropertyOf  sg:hasArticleType ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        skos:definition     "The :hasBroaderArticleType property relates a publication to a broader article-type term than it is actually classified with."@en ;
+        skos:prefLabel      "has broader article-type"@en .
+
+sg:volumeNumber  a              owl:DatatypeProperty ;
+        rdfs:domain             sg:Book , sg:ProceedingsVolume ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "volume number"@en ;
+        rdfs:range              xsd:int ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:volumeNumber ;
+        skos:definition         "The :volumeNumber property specifies ..."@en ;
+        skos:prefLabel          "volume number"@en .
+
+sg:isAssetOf  a           owl:ObjectProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is asset of"@en ;
+        rdfs:range        sg:Publication ;
+        sg:definition     "A thing that the asset is a rendering of."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        owl:inverseOf     sg:hasAsset ;
+        skos:definition   "The :isAssetOf property relates an asset to the publication it represents."@en ;
+        skos:prefLabel    "is asset of"@en .
+
+sg:Rule  a                owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Rule"@en ;
+        rdfs:subClassOf   sg:Tool ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:type           "rules" ;
+        skos:definition   "The :Rule class groups together all entities that define business rules for the things that we publish."@en ;
+        skos:prefLabel    "Rule"@en .
+
+sg:isPublishReady  a      owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is publish ready"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether an item is ready for publishing."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isPublishReady property marks whether a type is ready for publishing."@en ;
+        skos:prefLabel    "is publish ready"@en .
+
+sg:Technique  a           owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Technique"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:techniques ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/techniques/> ;
+        sg:type           "techniques" ;
+        skos:definition   "The :Technique class represents an instance from a categorisation of recognisable scientific methods or procedures described in scholarly articles. This categorisation is implemented as a SKOS concept scheme."@en ;
+        skos:prefLabel    "Technique"@en .
+
+sg:hasKnowledgeBase  a      owl:ObjectProperty ;
+        rdfs:domain         sg:Contract ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has knowledge-base"@en ;
+        rdfs:range          sg:KnowledgeBase ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:KnowledgeBase" ;
+        skos:definition     "The :hasKnowledgeBase property relates a data-publishing contract to a knowledge-base."@en ;
+        skos:prefLabel      "has knowledge-base"@en .
+
+sg:Binding  a             owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Binding"@en ;
+        rdfs:subClassOf   sg:Tool ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        skos:definition   "The :Binding class represents a restriction on one or more terms of similar type for export in data publishing."@en ;
+        skos:prefLabel    "Binding"@en .
+
+sg:hasLink  a               owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has link"@en ;
+        sg:definition       "A link related to the subject."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has link"@en .
+
+sg:hasJournal  a            owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has journal"@en ;
+        rdfs:range          sg:Journal ;
+        rdfs:subPropertyOf  sg:hasSerial ;
+        sg:definition       "A journal related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Journal" ;
+        skos:definition     "The :hasJournal property relates a publication to a journal."@en ;
+        skos:prefLabel      "has journal"@en .
+
+sg:isRepeatable  a        owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is repeatable"@en ;
+        sg:definition     "A boolean marking whether subject property can be repeated."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isRepeatable property marks whether a property can be repeated."@en ;
+        skos:prefLabel    "is repeatable"@en .
+
+sg:itemNumber  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Item ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "item number"@en ;
+        rdfs:range        xsd:integer ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:integer" ;
+        skos:definition   "The :itemNumber property specifies the number of an item within a collection."@en ;
+        skos:prefLabel    "item number"@en .
+
+sg:issueStart  a          owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "issue start"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A start issue for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :issueStart property specifies the start issue for a serial publication. Note that this :issueStart property relates to the publisher holdings which may not be the same as the actual publication issue start."@en ;
+        skos:prefLabel    "issue start"@en .
+
+sg:hasArticle  a            owl:ObjectProperty ;
+        rdfs:domain         sg:PublicationEvent ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has article"@en ;
+        rdfs:range          sg:Article ;
+        sg:definition       "An article related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Article" ;
+        skos:definition     "The :hasArticle property relates a publication-event to an article."@en ;
+        skos:prefLabel      "has article"@en .
+
+sg:AccessType  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Access type"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:access-types ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/access-types/> ;
+        sg:type           "access-types" ;
+        skos:definition   "The :AccessType class provides an instance from a categorisation of the various kinds of permissions/restrictions characterizing the way end users can access a product. In the case of online articles, for example, these can be 'Open Access' or 'Subscription'. Even though in most situations the products in question will be instances of :Publication (e.g. periodicals, issues, or specific components of these), in some cases other entities like datasets or websites may be qualified via an access type. The :AccessType categorisation is implemented as a SKOS concept scheme."@en ;
+        skos:prefLabel    "Access type"@en .
+
+lodp:volumeNumber  owl:equivalentProperty
+                sg:volumeNumber .
+
+sg:publicationYear  a     owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "publication year"@en ;
+        rdfs:range        xsd:gYear ;
+        sg:definition     "A year for a publication."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:gYear" ;
+        skos:definition   "The :publicationYear property specifies the year date of a publication as a string."@en ;
+        skos:prefLabel    "publication year"@en .
+
+sg:PublicationState  a    owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Publication state"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:publication-states ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/publish-states/> ;
+        sg:type           "publication-states" ;
+        skos:definition   "The :PublicationState class groups together publish-state and review-state individuals."@en ;
+        skos:prefLabel    "Publication state"@en .
+
+sg:assetList  a             owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "asset list"@en ;
+        rdfs:range          rdf:List ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "An ordered list of assets."@en ;
+        skos:prefLabel      "asset list"@en .
+
+sg:MetricsEvent  a        owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Metrics event"@en ;
+        rdfs:subClassOf   sg:AnnotationEvent ;
+        sg:isTerm         true ;
+        sg:type           "metrics-events" ;
+        skos:definition   "The :MetricsEvent class represents events where a :Metrics instance of some kind is created and attached to an object. For example, ..."@en ;
+        skos:prefLabel    "Metrics event"@en .
+
+sg:meshTerm  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Concept ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "MeSH term"@en ;
+        rdfs:range        rdfs:Literal ;
+        rdfs:seeAlso      <http://id.nlm.nih.gov/mesh/> ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :meshTerm property specifies a Medical Subject Heading (MeSH) term as a string."@en ;
+        skos:prefLabel    "MeSH term"@en .
+
+sg:dateTime  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Event ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "datetime"@en ;
+        rdfs:range        xsd:dateTime ;
+        sg:definition     "A dateTime for an event."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:dateTime" ;
+        skos:definition   "The :dateTime property specifies the full date of an event as a string, including a time component."@en ;
+        skos:prefLabel    "datetime"@en .
+
+lodp:confNumber  owl:equivalentProperty
+                sg:confNumber .
+
+sg:PdfAsset  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "PDF asset"@en ;
+        rdfs:subClassOf   sg:BlobAsset ;
+        sg:hasGraph       sgg:pdf-assets ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/pdf-assets/> ;
+        sg:type           "pdf-assets" ;
+        skos:definition   "The :PdfAsset class represents the physical rendition of a document asset in PDF format."@en ;
+        skos:prefLabel    "PDF asset"@en .
+
+sg:journalId  a             owl:DatatypeProperty ;
+        rdfs:domain         sg:Journal ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "journal ID"@en ;
+        rdfs:range          xsd:integer ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        skos:definition     "The :journalId property specifies the ID for a journal."@en ;
+        skos:prefLabel      "journal ID"@en .
+
+sg:volumeStart  a         owl:DatatypeProperty ;
+        rdfs:domain       sg:Serial ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "volume start"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A start volume for a coverage."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :volumeStart property specifies the start volume for a serial publication. Note that this :volumeStart property relates to the publisher holdings which may not be the same as the actual publication volume start."@en ;
+        skos:prefLabel    "volume start"@en .
+
+sg:otherCode  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "other code"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :otherCode property specifies a number or string used by external applications as an ID for an entity."@en ;
+        skos:prefLabel    "other code"@en .
+
+sg:Agent  a               owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Agent"@en ;
+        rdfs:subClassOf   sg:Thing ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:type           "agents" ;
+        skos:definition   "The :Agent class groups together all entities that can be the subject of an action. These can be single persons (:Person), or groups of people organised as a legal entity (:Organization)."@en ;
+        skos:prefLabel    "Agent"@en .
+
+sg:Contract  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Contract"@en ;
+        rdfs:subClassOf   sg:Tool ;
+        sg:hasGraph       sgg:contracts ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/contracts/> ;
+        sg:type           "contracts" ;
+        skos:definition   "The :Contract class represents a view permitted over the things that we publish. This view is defined for a given knowledge-base and thus supports targeted data publishing."@en ;
+        skos:prefLabel    "Contract"@en .
+
+sg:confCity  a                  owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference city"@en ;
+        rdfs:range              rdf:langString ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confCity ;
+        skos:definition         "The :confCity property specifies ..."@en ;
+        skos:prefLabel          "conference city"@en .
+
+sg:ConferenceSeries  a       owl:Class ;
+        rdfs:isDefinedBy     sg: ;
+        rdfs:label           "Conference series"@en ;
+        rdfs:subClassOf      sg:Publication ;
+        sg:hasGraph          sgg:conference-series ;
+        sg:isTerm            true ;
+        sg:isVocabulary      false ;
+        sg:namespace         <http://name.scigraph.com/conference-series/> ;
+        sg:type              "conference-series" ;
+        owl:equivalentClass  lodc:ConferenceSeries ;
+        skos:definition      "The :ConferenceSeries class represents ..."@en ;
+        skos:prefLabel       "Conference series"@en .
+
+lodp:ISBN  owl:equivalentProperty  sg:isbn .
+
+sg:figureType  a          owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "figure type"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A type label for a figure."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :figureType property specifies a type label for a figure."@en ;
+        skos:prefLabel    "figure type"@en .
+
+sg:filesize  a            owl:DatatypeProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "filesize"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An integer value for the size (in bytes) of a file."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :filesize property specifies an integer value for the size (in bytes) of an asset."@en ;
+        skos:prefLabel    "filesize"@en .
+
+sg:hasDomain  a             owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has domain"@en ;
+        rdfs:range          sg:Domain ;
+        sg:definition       "A domain related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Domain" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "has domain"@en .
+
+sg:allowsPredicate  a       owl:ObjectProperty ;
+        rdfs:domain         sg:Binding ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "allows predicate"@en ;
+        rdfs:range          rdfs:Property ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        skos:definition     "The :allowsPredicate property specifies a predicate to include in a dataset export."@en ;
+        skos:prefLabel      "allows predicate"@en .
+
+sg:hasSubject  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has subject"@en ;
+        rdfs:range          sg:Subject ;
+        sg:definition       "A subject term related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Subject" ;
+        skos:definition     "The :hasSubject property relates a publication to a subject term which describes one of the main topics the publication is about."@en ;
+        skos:prefLabel      "has subject"@en .
+
+lodp:isAvailableAt  owl:equivalentProperty
+                sg:availableAt .
+
+sg:Repository  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Repository"@en ;
+        rdfs:subClassOf   sg:Storage ;
+        sg:hasGraph       sgg:repositories ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/repositories/> ;
+        sg:type           "repositories" ;
+        skos:definition   "The :Repository class represents an archive of artefacts."@en ;
+        skos:prefLabel    "Repository"@en .
+
+sg:Abstract  a            owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Abstract"@en ;
+        rdfs:subClassOf   sg:Component ;
+        sg:hasGraph       sgg:abstracts ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/abstracts/> ;
+        sg:type           "abstracts" ;
+        skos:definition   "The :Abstract class represents a brief description of a scholarly work, usually author generated. Instances of :Abstract normally do not exist in isolation, but are linked to a :Document instance (of which they provide a summary)."@en ;
+        skos:prefLabel    "Abstract"@en .
+
+sg:hasExternalArticle
+        a                   owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has external article"@en ;
+        rdfs:range          sg:ExternalArticle ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:ExternalArticle" ;
+        skos:definition     "The :hasExternalArticle property relates an article to an external article."@en ;
+        skos:prefLabel      "has external article"@en .
+
+sg:assetUriTemplate  a    owl:DatatypeProperty ;
+        rdfs:domain       sg:AssetMap ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "asset URI template"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A target URI template for an asset."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :assetUriTemplate property specifies a string template for an asset URI."@en ;
+        skos:prefLabel    "asset URI template"@en .
+
+sg:primaryXmlId  a          owl:DatatypeProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "primary XML ID"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  sg:xmlId ;
+        sg:definition       "An ID assigned to an XML element (for primary article types)."@en ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "primary XML ID"@en .
+
+sg:isInstitutionalRepository
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:Repository ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is institutional repository"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:isTerm         true ;
+        skos:definition   "The :isInstitutionalRepository property specifies a repository run by an institution, only open to deposits from researchers affiliated with the institute. Access to archived artefacts may be open to all, or access may be limited to a particular group."@en ;
+        skos:prefLabel    "is institutional repository"@en .
+
+lodp:chapterOnlineDate
+        owl:equivalentProperty  sg:chapterOnlineDate .
+
+sg:id   a                 owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "ID"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An ID assigned to a thing."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :id property provides a unique ID for a thing."@en ;
+        skos:note         "The :id value forms the local part of the full URI for an entity name."@en ;
+        skos:prefLabel    "ID"@en .
+
+sg:confYear  a                  owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference year"@en ;
+        rdfs:range              xsd:date ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confYear ;
+        skos:definition         "The :confYear property specifies ..."@en ;
+        skos:prefLabel          "conference year"@en .
+
+sg:metadataUriTemplate
+        a                 owl:DatatypeProperty ;
+        rdfs:domain       sg:AssetMap ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "metadata URI template"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A source URI template for a metadata (discovery) document."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :metadataUriTemplate property specifies a source URI template for a metadata (discovery) document."@en ;
+        skos:prefLabel    "metadata URI template"@en .
+
+sg:isRoot  a              owl:DatatypeProperty ;
+        rdfs:domain       sg:Type ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "is root"@en ;
+        rdfs:range        xsd:boolean ;
+        sg:definition     "A boolean marking whether a term is a root term."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:boolean" ;
+        skos:definition   "The :isRoot property marks whether a SKOS concept is a SKOS top concept."@en ;
+        skos:prefLabel    "is root"@en .
+
+sg:hasArticleType  a        owl:ObjectProperty ;
+        rdfs:domain         sg:Article ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has article type"@en ;
+        rdfs:range          sg:ArticleType ;
+        sg:definition       "An article type related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:ArticleType" ;
+        skos:definition     "The :hasArticleType relates an article to an article-type."@en ;
+        skos:prefLabel      "has article type"@en .
+
+sg:ExternalArticle  a     owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "External article"@en ;
+        rdfs:subClassOf   sg:Article ;
+        sg:hasGraph       sgg:external-articles ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:namespace      <http://name.scigraph.com/external-articles/> ;
+        sg:type           "external-articles" ;
+        skos:definition   "The :ExternalArticle class represents an article which is externally published."@en ;
+        skos:note         "The :ExternalArticle class subclasses the :Article class."@en ;
+        skos:prefLabel    "External article"@en .
+
+sg:unpublishedMetadataUriTemplate
+        a                   owl:DatatypeProperty ;
+        rdfs:domain         sg:AssetMap ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "unpublished metadata URI template"@en ;
+        rdfs:range          rdfs:Literal ;
+        rdfs:subPropertyOf  sg:metadataUriTemplate ;
+        sg:definition       "A source URI template for an unpublished metadata (discovery) document."@en ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Literal" ;
+        skos:definition     "The :metadataUriTemplate property specifies a source URI template for an unpublished metadata (discovery) document."@en ;
+        skos:prefLabel      "unpublished metadata URI template"@en .
+
+sg:isbn  a                      owl:DatatypeProperty ;
+        rdfs:domain             sg:ProceedingsVolume , sg:Book ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "ISBN"@en ;
+        rdfs:range              rdfs:Literal ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:ISBN ;
+        skos:definition         "The :template property specifies ..."@en ;
+        skos:prefLabel          "ISBN"@en .
+
+sg:subtypeLabel  a        owl:DatatypeProperty ;
+        rdfs:domain       sg:Subject ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "subtype label"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A subtype label given to a resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "subtype label"@en .
+
+lodp:chapterRegistrationDate
+        owl:equivalentProperty  sg:chapterRegistrationDate .
+
+sg:hasImage  a              owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has image"@en ;
+        rdfs:range          sg:Image ;
+        sg:definition       "An image related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Image" ;
+        skos:definition     "The :hasImage property relates a publication to an image."@en ;
+        skos:prefLabel      "has image"@en .
+
+sg:repository  a            owl:ObjectProperty ;
+        rdfs:domain         sg:Asset ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "repository"@en ;
+        sg:definition       "A repository for the asset identified by subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdfs:Resource" ;
+        skos:definition     "The :repository property relates an asset to a storage repository."@en ;
+        skos:prefLabel      "repository"@en .
+
+sg:firstPage  a                 owl:DatatypeProperty ;
+        rdfs:domain             sg:BookChapter ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "first page"@en ;
+        rdfs:range              xsd:int ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:firstPage ;
+        skos:definition         "The :firstPage property specifies ..."@en ;
+        skos:prefLabel          "first page"@en .
+
+lodp:confEndDate  owl:equivalentProperty
+                sg:confEndDate .
+
+lodp:confCountry  owl:equivalentProperty
+                sg:confCountry .
+
+lodp:confYear  owl:equivalentProperty  sg:confYear .
+
+sg:authorList  a            owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "author list"@en ;
+        rdfs:range          rdf:List ;
+        sg:definition       "An ordered list of author names."@en ;
+        sg:isNamedResource  false ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "rdf:List" ;
+        skos:definition     "TO DO ..."@en ;
+        skos:prefLabel      "author list"@en .
+
+sg:coverDate  a           owl:DatatypeProperty ;
+        rdfs:domain       sg:Publication ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "cover date"@en ;
+        rdfs:range        xsd:date ;
+        sg:definition     "A date for a publication (e.g. issue) cover."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "xsd:date" ;
+        skos:definition   "The :coverDate property specifies the full date of a publication as it is displayed on its cover."@en ;
+        skos:note         "This is not necessarily the actual date of publication."@en ;
+        skos:prefLabel    "cover date"@en .
+
+sg:Annotation  a          owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Annotation"@en ;
+        rdfs:subClassOf   sg:Concept ;
+        sg:isTerm         true ;
+        sg:isVocabulary   false ;
+        sg:type           "annotations" ;
+        skos:definition   "The :Annotation class groups together all individuals that represents any entity used to annotate a document or artefact."@en ;
+        skos:prefLabel    "Annotation"@en .
+
+sg:hash  a                owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "hash"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A hash value assigned to a thing."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :hash property specifies a hash value over an entity URI used as a data integrity check."@en ;
+        skos:prefLabel    "hash"@en .
+
+sg:ownership  a           owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "ownership"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :ownership property specifies a string representing its type of ownership."@en ;
+        skos:note         "This property is a legacy from the PSET application."@en ;
+        skos:prefLabel    "ownership"@en .
+
+sg:confName  a                  owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference name"@en ;
+        rdfs:range              rdf:langString ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confName ;
+        skos:definition         "The :confName property specifies ..."@en ;
+        skos:prefLabel          "conference name"@en .
+
+sg:example  a             owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "example"@en ;
+        rdfs:seeAlso      void:exampleResource ;
+        sg:definition     "An example of an object instance."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Resource" ;
+        skos:definition   "The :example property specifies an example of an entity."@en ;
+        skos:note         "This property is similar to void:exampleResource. But see also skos:example."@en ;
+        skos:prefLabel    "example"@en .
+
+sg:hasSeries  a                 owl:ObjectProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "has series"@en ;
+        rdfs:range              sg:ConferenceSeries ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:hasSeries ;
+        skos:definition         "The :hasSeries property specifies ..."@en ;
+        skos:prefLabel          "has series"@en .
+
+sg:typeLabel  a           owl:DatatypeProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "type label"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "A type label given to a resource."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "TO DO ..."@en ;
+        skos:prefLabel    "type label"@en .
+
+sg:confEndDate  a               owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference end date"@en ;
+        rdfs:range              xsd:date ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confEndDate ;
+        skos:definition         "The :confEndDate property specifies ..."@en ;
+        skos:prefLabel          "conference end date"@en .
+
+sg:SummaryType  a         owl:Class ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Summary type"@en ;
+        rdfs:subClassOf   sg:Type ;
+        sg:hasGraph       sgg:summary-types ;
+        sg:isTerm         true ;
+        sg:isVocabulary   true ;
+        sg:namespace      <http://name.scigraph.com/summary-types/> ;
+        sg:type           "summary-types" ;
+        skos:definition   "The :SummaryType class represents an instance from  a categorisation of types of :Summary. For example, 'Long Summary', 'Short Summary', etc. This categorisation is implemented as a SKOS concept scheme."@en ;
+        skos:prefLabel    "Summary type"@en .
+
+sg:confAcronym  a               owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference acronym"@en ;
+        rdfs:range              rdf:langString ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confAcronym ;
+        skos:definition         "The :confAcronym property specifies ..."@en ;
+        skos:prefLabel          "conference acronym"@en .
+
+sg:replacedBy  a            owl:ObjectProperty ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "replaced by"@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     false ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:Thing" ;
+        owl:inverseOf       sg:replaces ;
+        skos:definition     "The :replacedBy property relates a thing to another thing that replaces it."@en ;
+        skos:prefLabel      "replaced by"@en .
+
+sg:Figure  a              owl:Class ;
+        rdfs:comment      "A class for Figure objects." ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "Figure"@en ;
+        rdfs:subClassOf   sg:Image ;
+        sg:hasGraph       sgg:figures ;
+        sg:isTerm         true ;
+        sg:type           "figures" ;
+        owl:disjointWith  sg:Illustration ;
+        skos:definition   "The :Figure class represents a numbered and captioned image within a publication. This image typically results as a direct outcome of the work described in the publication."@en ;
+        skos:prefLabel    "Figure"@en .
+
+sg:hasXmlAsset  a           owl:ObjectProperty ;
+        rdfs:domain         sg:Publication ;
+        rdfs:isDefinedBy    sg: ;
+        rdfs:label          "has XML asset"@en ;
+        rdfs:range          sg:XmlAsset ;
+        sg:definition       "An asset related to the subject."@en ;
+        sg:isNamedResource  true ;
+        sg:isRepeatable     true ;
+        sg:isTerm           true ;
+        sg:rangeLabel       "sg:XmlAsset" ;
+        skos:definition     "The :hasXmlAsset property relates a publication to an xml-asset."@en ;
+        skos:prefLabel      "has XML asset"@en .
+
+sg:confNumber  a                owl:DatatypeProperty ;
+        rdfs:domain             sg:Conference ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "conference number"@en ;
+        rdfs:range              xsd:int ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:confNumber ;
+        skos:definition         "The :confNumber property specifies ..."@en ;
+        skos:prefLabel          "conference number"@en .
+
+sg:scopusSearchDate  a          owl:DatatypeProperty ;
+        rdfs:domain             sg:Asset ;
+        rdfs:isDefinedBy        sg: ;
+        rdfs:label              "Scopus search date"@en ;
+        rdfs:range              xsd:dateTime ;
+        sg:isTerm               true ;
+        owl:equivalentProperty  lodp:scopusSearchDate ;
+        skos:definition         "The :scopusSearchDate property specifies ..."@en ;
+        skos:prefLabel          "Scopus search date"@en .
+
+sg:displayForm  a         owl:AnnotationProperty ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "display form"@en ;
+        sg:definition     "A list of property display directives."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        owl:deprecated    true ;
+        skos:definition   "(DEPRECATED TERM)"@en ;
+        skos:prefLabel    "display form"@en .
+
+sg:fileExtension  a       owl:DatatypeProperty ;
+        rdfs:domain       sg:Asset ;
+        rdfs:isDefinedBy  sg: ;
+        rdfs:label        "file extension"@en ;
+        rdfs:range        rdfs:Literal ;
+        sg:definition     "An extension for a filename."@en ;
+        sg:isRepeatable   false ;
+        sg:isTerm         true ;
+        sg:rangeLabel     "rdfs:Literal" ;
+        skos:definition   "The :fileExtension property specifies the extension part of the filename of an asset."@en ;
+        skos:prefLabel    "file extension"@en .
