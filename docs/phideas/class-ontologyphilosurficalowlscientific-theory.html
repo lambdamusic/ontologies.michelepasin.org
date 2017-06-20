@@ -1,0 +1,1985 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/libs/img/favicon.ico">
+
+	
+		<title>OntoDocs > http://purl.com/net/phideas</title>
+	
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="static/libs/bootstrap-3_3_7-dist/css/bootstrap.min.css" rel="stylesheet">  -->
+    <!-- Bootswatch:  -->
+    <!-- cerulean  | cyborg |  flatly |  lumen |  sandstone |   spacelab  |  yeti | cosmo |  darkly |  paper | simplex | superhero |  journal | readable  |   slate |  united -->
+    <link href="static/libs/bootswatch3_2/simplex/bootstrap.min.css" rel="stylesheet">
+    <link href="static/custom/css/simple-sidebar.css" rel="stylesheet">
+    <link href="static/custom/css/familytree.css" rel="stylesheet">
+    <link href="static/custom/css/tabletree.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="static/libs/bootstrap-3_3_7-dist/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/custom/css/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style type="text/css">
+
+  .lead-plus {font-size: 26.5px;}
+  .label-xs {font-size: 10px;}
+  .label-dark {background: #2c3e50; color: white; padding: 1px;}
+  .margin50 {margin-top: 50px; margin-bottom: 50px;}
+
+  .namespaces {background: #ced2d6; width: 100%;}
+
+
+  /*so that the d3plus tooltip panel doesnt cover the top banner*/
+  .navbar {z-index: 3000;}
+
+
+  .panel-body dt {margin-top: 5px;}
+  .page-header  {margin-top: 30px;}
+  #wrapper {margin-top: 50px;}
+
+  .implementation-panel {
+    overflow: auto;
+    /*max-height: 500px;*/
+  }
+
+  tr.table-classproperties {
+      /*background: #f5f5f5;*/
+  }
+  tr.table-classproperties th {
+      font-size: 80%;
+      font-weight: normal;
+  }
+
+
+  tr.table-inheritanceinfo {
+      /*background: #f5f5f5;*/
+      text-align: left;
+  }
+
+  tr.table-inheritanceinfo th {
+      font-size: 90%;
+      font-weight: normal;
+  }
+
+
+  .breadcrumb {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .breadcrumb a {
+      text-transform: capitalize;
+  }
+  .breadcrumb li {
+      text-transform: none;
+      /*so to catch the uri @todo improve*/
+  }
+
+
+  .fromclass_link {
+    /*color: white;
+    text-decoration: underline;*/
+    /*background: #1c1e52;*/
+    color: inherit;
+    /*padding: 1px;*/
+  }
+
+		.mythumbnail {
+			display: block;
+			padding: 13px;
+			margin-bottom: 30px;
+			line-height: 13.428571;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 30px;
+		}
+
+		.mythumbnail:hover {
+			background: lightyellow;
+			text-decoration: none;
+		}
+
+
+		.img-container{
+		    height:100%;
+			overflow: hidden;
+		    max-height:200px;
+			padding: 10px;
+/*			margin: 20px 0px 20px 0px;*/
+			border: 1em #EAE5E5 solid;
+		}
+
+		.img-container:hover {
+			border: 1px grey solid;
+		}
+
+		img{
+/*		    height:100% !important;*/
+		}
+
+
+		.icon-xxs {
+			font-size: 15px;
+		}
+
+
+    /* dropdown open on hover */
+
+    @media (min-width: 979px) {
+      ul.nav li.dropdown:hover > ul.dropdown-menu {
+        display: block;
+      }
+    }
+
+
+
+/*pygments css*/
+.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+/*overloading this class from pygments*/
+.highlight {
+  overflow: auto;
+}
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+    
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" id="menu-toggle" title="Toggle sidebar">
+        
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li ><a href="index.html"><code style="font-size: 115%;">http://purl.com/net/phideas</code></a></li>
+        
+
+       
+
+
+        <li  ><a href="entities-az.html">Entities A-Z</a></li>
+        
+        <li ><a href="entities-tree-classes.html">Classes Tree</a></li>
+        
+        
+        <li ><a href="entities-tree-properties.html">Properties Tree</a></li>
+        
+        
+        <li  ><a href="statistics.html">Statistics</a></li>
+
+
+
+
+
+      </ul>
+      
+    </div><!--/.nav-collapse -->
+
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+<div id="wrapper" class="toggled">
+
+
+    
+
+    
+        
+<!-- Sidebar -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+
+
+        <li>
+          <input style="margin-top: 30px;  margin-bottom: 20px;" type="text" id="search-input-sidebar" name="" value="" placeholder="Type to search">
+        </li>
+
+        
+          <li class="-second-level" id="sd_classes"><a href="entities-tree-classes.html">Classes (189)</a>
+          </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_2"><a  href="class-ontologyphilosurficalowl2-persons-meeting.html">ontology:philosurfical.owl#2-PERSONS-MEETING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_3"><a  href="class-ontologyphilosurficalowlabductive-argument.html">ontology:philosurfical.owl#ABDUCTIVE-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_4"><a  href="class-ontologyphilosurficalowlabstract-method.html">ontology:philosurfical.owl#ABSTRACT-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_5"><a  href="class-ontologyphilosurficalowlacademic-support-unit.html">ontology:philosurfical.owl#ACADEMIC-SUPPORT-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_6"><a  href="class-ontologyphilosurficalowlacademic-unit.html">ontology:philosurfical.owl#ACADEMIC-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_7"><a  href="class-ontologyphilosurficalowlacquisition.html">ontology:philosurfical.owl#ACQUISITION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_8"><a  href="class-ontologyphilosurficalowlactivity.html">ontology:philosurfical.owl#ACTIVITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_9"><a  href="class-ontologyphilosurficalowlactor.html">ontology:philosurfical.owl#ACTOR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_10"><a  href="class-ontologyphilosurficalowlalgorithm.html">ontology:philosurfical.owl#ALGORITHM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_11"><a  href="class-ontologyphilosurficalowlanalogy.html">ontology:philosurfical.owl#ANALOGY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_12"><a  href="class-ontologyphilosurficalowlargument.html">ontology:philosurfical.owl#ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_13"><a  href="class-ontologyphilosurficalowlargument-interpretation.html">ontology:philosurfical.owl#ARGUMENT-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_14"><a  href="class-ontologyphilosurficalowlargument-part.html">ontology:philosurfical.owl#ARGUMENT-PART</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a  href="class-ontologyphilosurficalowlargument-structure.html">ontology:philosurfical.owl#ARGUMENT-STRUCTURE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_16"><a  href="class-ontologyphilosurficalowlargumentation.html">ontology:philosurfical.owl#ARGUMENTATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_17"><a  href="class-ontologyphilosurficalowlargumentative-method.html">ontology:philosurfical.owl#ARGUMENTATIVE-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_18"><a  href="class-ontologyphilosurficalowlassumption.html">ontology:philosurfical.owl#ASSUMPTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_19"><a  href="class-ontologyphilosurficalowlattribute-assignment.html">ontology:philosurfical.owl#ATTRIBUTE-ASSIGNMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_20"><a  href="class-ontologyphilosurficalowlbeginning-of-existence.html">ontology:philosurfical.owl#BEGINNING-OF-EXISTENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_21"><a  href="class-ontologyphilosurficalowlbelief-group.html">ontology:philosurfical.owl#BELIEF-GROUP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_22"><a  href="class-ontologyphilosurficalowlbirth.html">ontology:philosurfical.owl#BIRTH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_23"><a  href="class-ontologyphilosurficalowlbranch-of-philosophy.html">ontology:philosurfical.owl#BRANCH-OF-PHILOSOPHY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_24"><a  href="class-ontologyphilosurficalowlcharitable-organization.html">ontology:philosurfical.owl#CHARITABLE-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_25"><a  href="class-ontologyphilosurficalowlcivil-service.html">ontology:philosurfical.owl#CIVIL-SERVICE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_26"><a  href="class-ontologyphilosurficalowlclose-social-contact.html">ontology:philosurfical.owl#CLOSE-SOCIAL-CONTACT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_27"><a  href="class-ontologyphilosurficalowlcompany.html">ontology:philosurfical.owl#COMPANY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_28"><a  href="class-ontologyphilosurficalowlcomposition-problem.html">ontology:philosurfical.owl#COMPOSITION-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_29"><a  href="class-ontologyphilosurficalowlconcept.html">ontology:philosurfical.owl#CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_30"><a  href="class-ontologyphilosurficalowlconcept-interpretation.html">ontology:philosurfical.owl#CONCEPT-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_31"><a  href="class-ontologyphilosurficalowlconceptual-creation.html">ontology:philosurfical.owl#CONCEPTUAL-CREATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_32"><a  href="class-ontologyphilosurficalowlconclusion.html">ontology:philosurfical.owl#CONCLUSION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_33"><a  href="class-ontologyphilosurficalowlcondition-assessment.html">ontology:philosurfical.owl#CONDITION-ASSESSMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_34"><a  href="class-ontologyphilosurficalowlconference.html">ontology:philosurfical.owl#CONFERENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_35"><a  href="class-ontologyphilosurficalowlcontextualized-school-of-thought.html">ontology:philosurfical.owl#CONTEXTUALIZED-SCHOOL-OF-THOUGHT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_36"><a  href="class-ontologyphilosurficalowlcontingency-problem.html">ontology:philosurfical.owl#CONTINGENCY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_37"><a  href="class-ontologyphilosurficalowlcounter-example.html">ontology:philosurfical.owl#COUNTER-EXAMPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_38"><a  href="class-ontologyphilosurficalowldeath.html">ontology:philosurfical.owl#DEATH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_39"><a  href="class-ontologyphilosurficalowldeductive-argument.html">ontology:philosurfical.owl#DEDUCTIVE-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_40"><a  href="class-ontologyphilosurficalowldefinitory-problem.html">ontology:philosurfical.owl#DEFINITORY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_41"><a  href="class-ontologyphilosurficalowldefinitory-problem-attribute.html">ontology:philosurfical.owl#DEFINITORY-PROBLEM-ATTRIBUTE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_42"><a  href="class-ontologyphilosurficalowldefinitory-problem-essence.html">ontology:philosurfical.owl#DEFINITORY-PROBLEM-ESSENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_43"><a  href="class-ontologyphilosurficalowldemonstration.html">ontology:philosurfical.owl#DEMONSTRATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_44"><a  href="class-ontologyphilosurficalowldependence-cause-problem.html">ontology:philosurfical.owl#DEPENDENCE-CAUSE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_45"><a  href="class-ontologyphilosurficalowldependence-effect-problem.html">ontology:philosurfical.owl#DEPENDENCE-EFFECT-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_46"><a  href="class-ontologyphilosurficalowldependence-problem.html">ontology:philosurfical.owl#DEPENDENCE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_47"><a  href="class-ontologyphilosurficalowldestruction.html">ontology:philosurfical.owl#DESTRUCTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_48"><a  href="class-ontologyphilosurficalowldichotomy.html">ontology:philosurfical.owl#DICHOTOMY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_49"><a  href="class-ontologyphilosurficalowldifference-problem.html">ontology:philosurfical.owl#DIFFERENCE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_50"><a  href="class-ontologyphilosurficalowldiscussion.html">ontology:philosurfical.owl#DISCUSSION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_51"><a  href="class-ontologyphilosurficalowldissolution.html">ontology:philosurfical.owl#DISSOLUTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_52"><a  href="class-ontologyphilosurficalowldistance-teaching-university.html">ontology:philosurfical.owl#DISTANCE-TEACHING-UNIVERSITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_53"><a  href="class-ontologyphilosurficalowldistinction.html">ontology:philosurfical.owl#DISTINCTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_54"><a  href="class-ontologyphilosurficalowldistinction-interpretation.html">ontology:philosurfical.owl#DISTINCTION-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_55"><a  href="class-ontologyphilosurficalowleducational-activity.html">ontology:philosurfical.owl#EDUCATIONAL-ACTIVITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_56"><a  href="class-ontologyphilosurficalowleducational-organization.html">ontology:philosurfical.owl#EDUCATIONAL-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_57"><a  href="class-ontologyphilosurficalowleducational-organization-unit.html">ontology:philosurfical.owl#EDUCATIONAL-ORGANIZATION-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_58"><a  href="class-ontologyphilosurficalowlend-of-existence.html">ontology:philosurfical.owl#END-OF-EXISTENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_59"><a  href="class-ontologyphilosurficalowlequality-problem.html">ontology:philosurfical.owl#EQUALITY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_60"><a  href="class-ontologyphilosurficalowlevent.html">ontology:philosurfical.owl#EVENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_61"><a  href="class-ontologyphilosurficalowlevent-interpretation.html">ontology:philosurfical.owl#EVENT-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_62"><a  href="class-ontologyphilosurficalowlexample.html">ontology:philosurfical.owl#EXAMPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_63"><a  href="class-ontologyphilosurficalowlexistence-as-abstract-problem.html">ontology:philosurfical.owl#EXISTENCE-AS-ABSTRACT-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_64"><a  href="class-ontologyphilosurficalowlexistence-as-concrete-problem.html">ontology:philosurfical.owl#EXISTENCE-AS-CONCRETE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_65"><a  href="class-ontologyphilosurficalowlexistence-problem.html">ontology:philosurfical.owl#EXISTENCE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_66"><a  href="class-ontologyphilosurficalowlexperiment.html">ontology:philosurfical.owl#EXPERIMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_67"><a  href="class-ontologyphilosurficalowlexpression-creation.html">ontology:philosurfical.owl#EXPRESSION-CREATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_68"><a  href="class-ontologyphilosurficalowlexpression-interpretation.html">ontology:philosurfical.owl#EXPRESSION-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_69"><a  href="class-ontologyphilosurficalowlfactual-problem.html">ontology:philosurfical.owl#FACTUAL-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_70"><a  href="class-ontologyphilosurficalowlfallacy.html">ontology:philosurfical.owl#FALLACY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_71"><a  href="class-ontologyphilosurficalowlfield-of-study.html">ontology:philosurfical.owl#FIELD-OF-STUDY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_72"><a  href="class-ontologyphilosurficalowlformation.html">ontology:philosurfical.owl#FORMATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_73"><a  href="class-ontologyphilosurficalowlfunctional-problem.html">ontology:philosurfical.owl#FUNCTIONAL-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_74"><a  href="class-ontologyphilosurficalowlgeneric-field-of-study.html">ontology:philosurfical.owl#GENERIC-FIELD-OF-STUDY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_75"><a  href="class-ontologyphilosurficalowlgod.html">ontology:philosurfical.owl#GOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_76"><a  href="class-ontologyphilosurficalowlgovernment.html">ontology:philosurfical.owl#GOVERNMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_77"><a  href="class-ontologyphilosurficalowlgovernment-organization.html">ontology:philosurfical.owl#GOVERNMENT-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_78"><a  href="class-ontologyphilosurficalowlgroup.html">ontology:philosurfical.owl#GROUP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_79"><a  href="class-ontologyphilosurficalowlgroup-of-people.html">ontology:philosurfical.owl#GROUP-OF-PEOPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_80"><a  href="class-ontologyphilosurficalowlhigher-educational-organization.html">ontology:philosurfical.owl#HIGHER-EDUCATIONAL-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_81"><a  href="class-ontologyphilosurficalowlhumanistic-discipline.html">ontology:philosurfical.owl#HUMANISTIC-DISCIPLINE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_82"><a  href="class-ontologyphilosurficalowlhypothesis.html">ontology:philosurfical.owl#HYPOTHESIS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_83"><a  href="class-ontologyphilosurficalowlidea-conception.html">ontology:philosurfical.owl#IDEA-CONCEPTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_84"><a  href="class-ontologyphilosurficalowlidea-interpretation.html">ontology:philosurfical.owl#IDEA-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_85"><a  href="class-ontologyphilosurficalowlidea-modification.html">ontology:philosurfical.owl#IDEA-MODIFICATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_86"><a  href="class-ontologyphilosurficalowlidea-usage.html">ontology:philosurfical.owl#IDEA-USAGE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_87"><a  href="class-ontologyphilosurficalowlidentifier-assignment.html">ontology:philosurfical.owl#IDENTIFIER-ASSIGNMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_88"><a  href="class-ontologyphilosurficalowlimpossibility-problem.html">ontology:philosurfical.owl#IMPOSSIBILITY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_89"><a  href="class-ontologyphilosurficalowlindependence-problem.html">ontology:philosurfical.owl#INDEPENDENCE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_90"><a  href="class-ontologyphilosurficalowlindividual.html">ontology:philosurfical.owl#INDIVIDUAL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_91"><a  href="class-ontologyphilosurficalowlinductive-argument.html">ontology:philosurfical.owl#INDUCTIVE-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_92"><a  href="class-ontologyphilosurficalowlindustrial-organization.html">ontology:philosurfical.owl#INDUSTRIAL-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_93"><a  href="class-ontologyphilosurficalowlintellectual-activity.html">ontology:philosurfical.owl#INTELLECTUAL-ACTIVITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_94"><a  href="class-ontologyphilosurficalowlintellectual-movement.html">ontology:philosurfical.owl#INTELLECTUAL-MOVEMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_95"><a  href="class-ontologyphilosurficalowlinterpretation.html">ontology:philosurfical.owl#INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_96"><a  href="class-ontologyphilosurficalowlio-interpretation.html">ontology:philosurfical.owl#IO-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_97"><a  href="class-ontologyphilosurficalowljoining-a-group.html">ontology:philosurfical.owl#JOINING-A-GROUP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_98"><a  href="class-ontologyphilosurficalowljourney.html">ontology:philosurfical.owl#JOURNEY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_99"><a  href="class-ontologyphilosurficalowllaw.html">ontology:philosurfical.owl#LAW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_100"><a  href="class-ontologyphilosurficalowllearning.html">ontology:philosurfical.owl#LEARNING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_101"><a  href="class-ontologyphilosurficalowllearning-at-institution.html">ontology:philosurfical.owl#LEARNING-AT-INSTITUTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_102"><a  href="class-ontologyphilosurficalowllearning-centred-organization.html">ontology:philosurfical.owl#LEARNING-CENTRED-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_103"><a  href="class-ontologyphilosurficalowllegal-body.html">ontology:philosurfical.owl#LEGAL-BODY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_104"><a  href="class-ontologyphilosurficalowllogical-mathematical-method.html">ontology:philosurfical.owl#LOGICAL-MATHEMATICAL-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_105"><a  href="class-ontologyphilosurficalowlmail-exchange.html">ontology:philosurfical.owl#MAIL-EXCHANGE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_106"><a  href="class-ontologyphilosurficalowlmaxime.html">ontology:philosurfical.owl#MAXIME</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_107"><a  href="class-ontologyphilosurficalowlmeasurement.html">ontology:philosurfical.owl#MEASUREMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_108"><a  href="class-ontologyphilosurficalowlmeeting.html">ontology:philosurfical.owl#MEETING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_109"><a  href="class-ontologyphilosurficalowlmetaphor.html">ontology:philosurfical.owl#METAPHOR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_110"><a  href="class-ontologyphilosurficalowlmethod.html">ontology:philosurfical.owl#METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_111"><a  href="class-ontologyphilosurficalowlmethod-interpretation.html">ontology:philosurfical.owl#METHOD-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_112"><a  href="class-ontologyphilosurficalowlmodality-problem.html">ontology:philosurfical.owl#MODALITY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_113"><a  href="class-ontologyphilosurficalowlmodification.html">ontology:philosurfical.owl#MODIFICATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_114"><a  href="class-ontologyphilosurficalowlmove.html">ontology:philosurfical.owl#MOVE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_115"><a  href="class-ontologyphilosurficalowlmyth.html">ontology:philosurfical.owl#MYTH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_116"><a  href="class-ontologyphilosurficalowlnecessity-problem.html">ontology:philosurfical.owl#NECESSITY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_117"><a  href="class-ontologyphilosurficalowlnon-profit-organization.html">ontology:philosurfical.owl#NON-PROFIT-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_118"><a  href="class-ontologyphilosurficalowlorganization.html">ontology:philosurfical.owl#ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_119"><a  href="class-ontologyphilosurficalowlorganization-unit.html">ontology:philosurfical.owl#ORGANIZATION-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_120"><a  href="class-ontologyphilosurficalowlpart-addition.html">ontology:philosurfical.owl#PART-ADDITION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_121"><a  href="class-ontologyphilosurficalowlpart-removal.html">ontology:philosurfical.owl#PART-REMOVAL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_122"><a  href="class-ontologyphilosurficalowlpartnership.html">ontology:philosurfical.owl#PARTNERSHIP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_123"><a  href="class-ontologyphilosurficalowlperiod.html">ontology:philosurfical.owl#PERIOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_124"><a  href="class-ontologyphilosurficalowlphilosophical-idea.html">ontology:philosurfical.owl#PHILOSOPHICAL-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_125"><a  href="class-ontologyphilosurficalowlphilosophical-movement.html">ontology:philosurfical.owl#PHILOSOPHICAL-MOVEMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_126"><a  href="class-ontologyphilosurficalowlphilosophical-school.html">ontology:philosurfical.owl#PHILOSOPHICAL-SCHOOL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_127"><a  href="class-ontologyphilosurficalowlphilosophical-system.html">ontology:philosurfical.owl#PHILOSOPHICAL-SYSTEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_128"><a  href="class-ontologyphilosurficalowlphilosophical-system-interpretation.html">ontology:philosurfical.owl#PHILOSOPHICAL-SYSTEM-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_129"><a  href="class-ontologyphilosurficalowlphilosophical-theory.html">ontology:philosurfical.owl#PHILOSOPHICAL-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_130"><a  href="class-ontologyphilosurficalowlpolitical-group.html">ontology:philosurfical.owl#POLITICAL-GROUP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_131"><a  href="class-ontologyphilosurficalowlpolitical-organization.html">ontology:philosurfical.owl#POLITICAL-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_132"><a  href="class-ontologyphilosurficalowlpossibility-prolem.html">ontology:philosurfical.owl#POSSIBILITY-PROLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_133"><a  href="class-ontologyphilosurficalowlpractical-method.html">ontology:philosurfical.owl#PRACTICAL-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_134"><a  href="class-ontologyphilosurficalowlprecept.html">ontology:philosurfical.owl#PRECEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_135"><a  href="class-ontologyphilosurficalowlprincipial-entity.html">ontology:philosurfical.owl#PRINCIPIAL-ENTITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_136"><a  href="class-ontologyphilosurficalowlprinciple.html">ontology:philosurfical.owl#PRINCIPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_137"><a  href="class-ontologyphilosurficalowlprivate-company.html">ontology:philosurfical.owl#PRIVATE-COMPANY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_138"><a  href="class-ontologyphilosurficalowlproblem.html">ontology:philosurfical.owl#PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_139"><a  href="class-ontologyphilosurficalowlproblem-area.html">ontology:philosurfical.owl#PROBLEM-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_140"><a  href="class-ontologyphilosurficalowlproblem-area-interpreation.html">ontology:philosurfical.owl#PROBLEM-AREA-INTERPREATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_141"><a  href="class-ontologyphilosurficalowlproblem-interpretation.html">ontology:philosurfical.owl#PROBLEM-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_142"><a  href="class-ontologyphilosurficalowlproduction.html">ontology:philosurfical.owl#PRODUCTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_143"><a  href="class-ontologyphilosurficalowlprofit-organization.html">ontology:philosurfical.owl#PROFIT-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_144"><a  href="class-ontologyphilosurficalowlpublic-company.html">ontology:philosurfical.owl#PUBLIC-COMPANY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_145"><a  href="class-ontologyphilosurficalowlpublication-event.html">ontology:philosurfical.owl#PUBLICATION-EVENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_146"><a  href="class-ontologyphilosurficalowlpublishing-house.html">ontology:philosurfical.owl#PUBLISHING-HOUSE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_147"><a  href="class-ontologyphilosurficalowlpurpose-problem.html">ontology:philosurfical.owl#PURPOSE-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_148"><a  href="class-ontologyphilosurficalowlr-and-d-institute.html">ontology:philosurfical.owl#R-AND-D-INSTITUTE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_149"><a  href="class-ontologyphilosurficalowlr-and-d-institute-within-educational-organization.html">ontology:philosurfical.owl#R-AND-D-INSTITUTE-WITHIN-EDUCATIONAL-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_150"><a  href="class-ontologyphilosurficalowlr-and-d-institute-within-larger-organization.html">ontology:philosurfical.owl#R-AND-D-INSTITUTE-WITHIN-LARGER-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_151"><a  href="class-ontologyphilosurficalowlrelational-problem.html">ontology:philosurfical.owl#RELATIONAL-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_152"><a  href="class-ontologyphilosurficalowlreligious-group.html">ontology:philosurfical.owl#RELIGIOUS-GROUP</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_153"><a  href="class-ontologyphilosurficalowlrhetorical-figure.html">ontology:philosurfical.owl#RHETORICAL-FIGURE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_154"><a  href="class-ontologyphilosurficalowlrhetorical-figure-interpretation.html">ontology:philosurfical.owl#RHETORICAL-FIGURE-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_155"><a  href="class-ontologyphilosurficalowlrule-of-inference.html">ontology:philosurfical.owl#RULE-OF-INFERENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_156"><a  href="class-ontologyphilosurficalowlschool.html">ontology:philosurfical.owl#SCHOOL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_157"><a  href="class-ontologyphilosurficalowlschool-of-thought.html">ontology:philosurfical.owl#SCHOOL-OF-THOUGHT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_158"><a  href="class-ontologyphilosurficalowlschool-of-thought-interpretation.html">ontology:philosurfical.owl#SCHOOL-OF-THOUGHT-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_159"><a  href="class-ontologyphilosurficalowlscientific-discipline.html">ontology:philosurfical.owl#SCIENTIFIC-DISCIPLINE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_160"><a  href="class-ontologyphilosurficalowlscientific-method.html">ontology:philosurfical.owl#SCIENTIFIC-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_161"><a class="active" href="class-ontologyphilosurficalowlscientific-theory.html">ontology:philosurfical.owl#SCIENTIFIC-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_162"><a  href="class-ontologyphilosurficalowlself-evident-principle.html">ontology:philosurfical.owl#SELF-EVIDENT-PRINCIPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_163"><a  href="class-ontologyphilosurficalowlseminar.html">ontology:philosurfical.owl#SEMINAR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_164"><a  href="class-ontologyphilosurficalowlsocial-activity.html">ontology:philosurfical.owl#SOCIAL-ACTIVITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_165"><a  href="class-ontologyphilosurficalowlsocial-gathering.html">ontology:philosurfical.owl#SOCIAL-GATHERING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_166"><a  href="class-ontologyphilosurficalowlstudy.html">ontology:philosurfical.owl#STUDY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_167"><a  href="class-ontologyphilosurficalowlstudy-a-document.html">ontology:philosurfical.owl#STUDY-A-DOCUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_168"><a  href="class-ontologyphilosurficalowlstudy-an-idea.html">ontology:philosurfical.owl#STUDY-AN-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_169"><a  href="class-ontologyphilosurficalowlsupernatural-entity.html">ontology:philosurfical.owl#SUPERNATURAL-ENTITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_170"><a  href="class-ontologyphilosurficalowlteaching.html">ontology:philosurfical.owl#TEACHING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_171"><a  href="class-ontologyphilosurficalowlteaching-at-institution.html">ontology:philosurfical.owl#TEACHING-AT-INSTITUTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_172"><a  href="class-ontologyphilosurficalowltelephone-conversation.html">ontology:philosurfical.owl#TELEPHONE-CONVERSATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_173"><a  href="class-ontologyphilosurficalowltemporal-entity.html">ontology:philosurfical.owl#TEMPORAL-ENTITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_174"><a  href="class-ontologyphilosurficalowltheory.html">ontology:philosurfical.owl#THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_175"><a  href="class-ontologyphilosurficalowltheory-interpretation.html">ontology:philosurfical.owl#THEORY-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_176"><a  href="class-ontologyphilosurficalowltheory-refinement.html">ontology:philosurfical.owl#THEORY-REFINEMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_177"><a  href="class-ontologyphilosurficalowltheory-transposition.html">ontology:philosurfical.owl#THEORY-TRANSPOSITION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_178"><a  href="class-ontologyphilosurficalowlthesis.html">ontology:philosurfical.owl#THESIS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_179"><a  href="class-ontologyphilosurficalowlthesis-interpretation.html">ontology:philosurfical.owl#THESIS-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_180"><a  href="class-ontologyphilosurficalowlthought-experiment.html">ontology:philosurfical.owl#THOUGHT-EXPERIMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_181"><a  href="class-ontologyphilosurficalowltransfer-of-custody.html">ontology:philosurfical.owl#TRANSFER-OF-CUSTODY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_182"><a  href="class-ontologyphilosurficalowltransformation.html">ontology:philosurfical.owl#TRANSFORMATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_183"><a  href="class-ontologyphilosurficalowltype-assignment.html">ontology:philosurfical.owl#TYPE-ASSIGNMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_184"><a  href="class-ontologyphilosurficalowluniversity.html">ontology:philosurfical.owl#UNIVERSITY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_185"><a  href="class-ontologyphilosurficalowluniversity-faculty.html">ontology:philosurfical.owl#UNIVERSITY-FACULTY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_186"><a  href="class-ontologyphilosurficalowlview.html">ontology:philosurfical.owl#VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_187"><a  href="class-ontologyphilosurficalowlview-interpretation.html">ontology:philosurfical.owl#VIEW-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_188"><a  href="class-ontologyphilosurficalowlview-subscription.html">ontology:philosurfical.owl#VIEW-SUBSCRIPTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_189"><a  href="class-ontologyphilosurficalowlworking-for-organization.html">ontology:philosurfical.owl#WORKING-FOR-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_190"><a  href="class-ontologyphilosurficalowlworkshop.html">ontology:philosurfical.owl#WORKSHOP</a></li>
+          
+        
+
+        
+            <li class="-second-level" id="sd_properties"><a  href="entities-tree-properties.html">Properties (218)</a>
+            </li>
+
+            
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_191"><a   href="prop-ontologyphilosurficalowladded.html">ontology:philosurfical.owl#ADDED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_192"><a   href="prop-ontologyphilosurficalowlassigned.html">ontology:philosurfical.owl#ASSIGNED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_193"><a   href="prop-ontologyphilosurficalowlassigned-attribute-to.html">ontology:philosurfical.owl#ASSIGNED-ATTRIBUTE-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_194"><a   href="prop-ontologyphilosurficalowlassociated-to-view.html">ontology:philosurfical.owl#ASSOCIATED-TO-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_195"><a   href="prop-ontologyphilosurficalowlassociated-with.html">ontology:philosurfical.owl#ASSOCIATED-WITH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_196"><a   href="prop-ontologyphilosurficalowlassumed-in-school-of-thought.html">ontology:philosurfical.owl#ASSUMED-IN-SCHOOL-OF-THOUGHT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_197"><a   href="prop-ontologyphilosurficalowlassumed-in-theory.html">ontology:philosurfical.owl#ASSUMED-IN-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_198"><a   href="prop-ontologyphilosurficalowlattacked-by-problem.html">ontology:philosurfical.owl#ATTACKED-BY-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_199"><a   href="prop-ontologyphilosurficalowlattacks-view.html">ontology:philosurfical.owl#ATTACKS-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_200"><a   href="prop-ontologyphilosurficalowlaugmented.html">ontology:philosurfical.owl#AUGMENTED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_201"><a   href="prop-ontologyphilosurficalowlbelongs-to-argument.html">ontology:philosurfical.owl#BELONGS-TO-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_202"><a   href="prop-ontologyphilosurficalowlbrought-into-existence.html">ontology:philosurfical.owl#BROUGHT-INTO-EXISTENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_203"><a   href="prop-ontologyphilosurficalowlbrought-into-life.html">ontology:philosurfical.owl#BROUGHT-INTO-LIFE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_204"><a   href="prop-ontologyphilosurficalowlby-mother.html">ontology:philosurfical.owl#BY-MOTHER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_205"><a   href="prop-ontologyphilosurficalowlcarried-out-by.html">ontology:philosurfical.owl#CARRIED-OUT-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_206"><a   href="prop-ontologyphilosurficalowlcausally-connected-to.html">ontology:philosurfical.owl#CAUSALLY-CONNECTED-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_207"><a   href="prop-ontologyphilosurficalowlcauses-concept.html">ontology:philosurfical.owl#CAUSES-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_208"><a   href="prop-ontologyphilosurficalowlclassified.html">ontology:philosurfical.owl#CLASSIFIED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_209"><a   href="prop-ontologyphilosurficalowlclassifies-view.html">ontology:philosurfical.owl#CLASSIFIES-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_210"><a   href="prop-ontologyphilosurficalowlconcerned.html">ontology:philosurfical.owl#CONCERNED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_211"><a   href="prop-ontologyphilosurficalowlconsists-of.html">ontology:philosurfical.owl#CONSISTS-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_212"><a   href="prop-ontologyphilosurficalowlcontains-concept.html">ontology:philosurfical.owl#CONTAINS-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_213"><a   href="prop-ontologyphilosurficalowlcontains-problem.html">ontology:philosurfical.owl#CONTAINS-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_214"><a   href="prop-ontologyphilosurficalowlcontinued.html">ontology:philosurfical.owl#CONTINUED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_215"><a   href="prop-ontologyphilosurficalowlcontrasts-idea.html">ontology:philosurfical.owl#CONTRASTS-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_216"><a   href="prop-ontologyphilosurficalowlcontrasts-with.html">ontology:philosurfical.owl#CONTRASTS-WITH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_217"><a   href="prop-ontologyphilosurficalowlconvincing-argument.html">ontology:philosurfical.owl#CONVINCING-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_218"><a   href="prop-ontologyphilosurficalowlcustody-received-by.html">ontology:philosurfical.owl#CUSTODY-RECEIVED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_219"><a   href="prop-ontologyphilosurficalowlcustody-surrendered-by.html">ontology:philosurfical.owl#CUSTODY-SURRENDERED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_220"><a   href="prop-ontologyphilosurficalowldeassigned.html">ontology:philosurfical.owl#DEASSIGNED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_221"><a   href="prop-ontologyphilosurficalowldefined-by-argument.html">ontology:philosurfical.owl#DEFINED-BY-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_222"><a   href="prop-ontologyphilosurficalowldefined-by-view.html">ontology:philosurfical.owl#DEFINED-BY-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_223"><a   href="prop-ontologyphilosurficalowldefines-concept.html">ontology:philosurfical.owl#DEFINES-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_224"><a   href="prop-ontologyphilosurficalowldefines-method.html">ontology:philosurfical.owl#DEFINES-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_225"><a   href="prop-ontologyphilosurficalowldefines-problem.html">ontology:philosurfical.owl#DEFINES-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_226"><a   href="prop-ontologyphilosurficalowldegree-of-study.html">ontology:philosurfical.owl#DEGREE-OF-STUDY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_227"><a   href="prop-ontologyphilosurficalowlderives-from-problem.html">ontology:philosurfical.owl#DERIVES-FROM-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_228"><a   href="prop-ontologyphilosurficalowldestroyed.html">ontology:philosurfical.owl#DESTROYED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_229"><a   href="prop-ontologyphilosurficalowldeveloped-in.html">ontology:philosurfical.owl#DEVELOPED-IN</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_230"><a   href="prop-ontologyphilosurficalowldevelops-premise.html">ontology:philosurfical.owl#DEVELOPS-PREMISE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_231"><a   href="prop-ontologyphilosurficalowldiminished.html">ontology:philosurfical.owl#DIMINISHED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_232"><a   href="prop-ontologyphilosurficalowldissolved.html">ontology:philosurfical.owl#DISSOLVED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_233"><a   href="prop-ontologyphilosurficalowlemployed.html">ontology:philosurfical.owl#EMPLOYED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_234"><a   href="prop-ontologyphilosurficalowlexists-in-area.html">ontology:philosurfical.owl#EXISTS-IN-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_235"><a   href="prop-ontologyphilosurficalowlexplains-metaphorically.html">ontology:philosurfical.owl#EXPLAINS-METAPHORICALLY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_236"><a   href="prop-ontologyphilosurficalowlfalls-within.html">ontology:philosurfical.owl#FALLS-WITHIN</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_237"><a   href="prop-ontologyphilosurficalowlfinishes.html">ontology:philosurfical.owl#FINISHES</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_238"><a   href="prop-ontologyphilosurficalowlfrom-father.html">ontology:philosurfical.owl#FROM-FATHER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_239"><a   href="prop-ontologyphilosurficalowlgovernment-of-country.html">ontology:philosurfical.owl#GOVERNMENT-OF-COUNTRY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_240"><a   href="prop-ontologyphilosurficalowlgroup-joined.html">ontology:philosurfical.owl#GROUP-JOINED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_241"><a   href="prop-ontologyphilosurficalowlhad-participant.html">ontology:philosurfical.owl#HAD-PARTICIPANT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_242"><a   href="prop-ontologyphilosurficalowlhad-specific-purpose.html">ontology:philosurfical.owl#HAD-SPECIFIC-PURPOSE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_243"><a   href="prop-ontologyphilosurficalowlhas-academic-unit.html">ontology:philosurfical.owl#HAS-ACADEMIC-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_244"><a   href="prop-ontologyphilosurficalowlhas-added-element.html">ontology:philosurfical.owl#HAS-ADDED-ELEMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_245"><a   href="prop-ontologyphilosurficalowlhas-alternative-form.html">ontology:philosurfical.owl#HAS-ALTERNATIVE-FORM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_246"><a   href="prop-ontologyphilosurficalowlhas-altitude.html">ontology:philosurfical.owl#HAS-ALTITUDE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_247"><a   href="prop-ontologyphilosurficalowlhas-argument-part.html">ontology:philosurfical.owl#HAS-ARGUMENT-PART</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_248"><a   href="prop-ontologyphilosurficalowlhas-associated-concept.html">ontology:philosurfical.owl#HAS-ASSOCIATED-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_249"><a   href="prop-ontologyphilosurficalowlhas-associated-event.html">ontology:philosurfical.owl#HAS-ASSOCIATED-EVENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_250"><a   href="prop-ontologyphilosurficalowlhas-assumption.html">ontology:philosurfical.owl#HAS-ASSUMPTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_251"><a   href="prop-ontologyphilosurficalowlhas-background-theory.html">ontology:philosurfical.owl#HAS-BACKGROUND-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_252"><a   href="prop-ontologyphilosurficalowlhas-bboxeast.html">ontology:philosurfical.owl#HAS-BBOXEAST</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_253"><a   href="prop-ontologyphilosurficalowlhas-bboxnorth.html">ontology:philosurfical.owl#HAS-BBOXNORTH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_254"><a   href="prop-ontologyphilosurficalowlhas-bboxsouth.html">ontology:philosurfical.owl#HAS-BBOXSOUTH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_255"><a   href="prop-ontologyphilosurficalowlhas-bboxwest.html">ontology:philosurfical.owl#HAS-BBOXWEST</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_256"><a   href="prop-ontologyphilosurficalowlhas-caller.html">ontology:philosurfical.owl#HAS-CALLER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_257"><a   href="prop-ontologyphilosurficalowlhas-central-problem.html">ontology:philosurfical.owl#HAS-CENTRAL-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_258"><a   href="prop-ontologyphilosurficalowlhas-common-name.html">ontology:philosurfical.owl#HAS-COMMON-NAME</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_259"><a   href="prop-ontologyphilosurficalowlhas-contact-point.html">ontology:philosurfical.owl#HAS-CONTACT-POINT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_260"><a   href="prop-ontologyphilosurficalowlhas-created.html">ontology:philosurfical.owl#HAS-CREATED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_261"><a   href="prop-ontologyphilosurficalowlhas-description.html">ontology:philosurfical.owl#HAS-DESCRIPTION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_262"><a   href="prop-ontologyphilosurficalowlhas-equivalent-meaning-as.html">ontology:philosurfical.owl#HAS-EQUIVALENT-MEANING-AS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_263"><a   href="prop-ontologyphilosurficalowlhas-exemplar-document.html">ontology:philosurfical.owl#HAS-EXEMPLAR-DOCUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_264"><a   href="prop-ontologyphilosurficalowlhas-exemplar-theory.html">ontology:philosurfical.owl#HAS-EXEMPLAR-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_265"><a   href="prop-ontologyphilosurficalowlhas-facilitator.html">ontology:philosurfical.owl#HAS-FACILITATOR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_266"><a   href="prop-ontologyphilosurficalowlhas-faculty.html">ontology:philosurfical.owl#HAS-FACULTY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_267"><a   href="prop-ontologyphilosurficalowlhas-formed.html">ontology:philosurfical.owl#HAS-FORMED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_268"><a   href="prop-ontologyphilosurficalowlhas-frequency.html">ontology:philosurfical.owl#HAS-FREQUENCY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_269"><a   href="prop-ontologyphilosurficalowlhas-identified.html">ontology:philosurfical.owl#HAS-IDENTIFIED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_270"><a   href="prop-ontologyphilosurficalowlhas-interpretation.html">ontology:philosurfical.owl#HAS-INTERPRETATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_271"><a   href="prop-ontologyphilosurficalowlhas-item-sent.html">ontology:philosurfical.owl#HAS-ITEM-SENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_272"><a   href="prop-ontologyphilosurficalowlhas-latitude.html">ontology:philosurfical.owl#HAS-LATITUDE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_273"><a   href="prop-ontologyphilosurficalowlhas-learner.html">ontology:philosurfical.owl#HAS-LEARNER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_274"><a   href="prop-ontologyphilosurficalowlhas-longitude.html">ontology:philosurfical.owl#HAS-LONGITUDE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_275"><a   href="prop-ontologyphilosurficalowlhas-main-exponent.html">ontology:philosurfical.owl#HAS-MAIN-EXPONENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_276"><a   href="prop-ontologyphilosurficalowlhas-main-thesis.html">ontology:philosurfical.owl#HAS-MAIN-THESIS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_277"><a   href="prop-ontologyphilosurficalowlhas-member.html">ontology:philosurfical.owl#HAS-MEMBER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_278"><a   href="prop-ontologyphilosurficalowlhas-methodology.html">ontology:philosurfical.owl#HAS-METHODOLOGY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_279"><a   href="prop-ontologyphilosurficalowlhas-modified.html">ontology:philosurfical.owl#HAS-MODIFIED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_280"><a   href="prop-ontologyphilosurficalowlhas-new-idea.html">ontology:philosurfical.owl#HAS-NEW-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_281"><a   href="prop-ontologyphilosurficalowlhas-old-idea.html">ontology:philosurfical.owl#HAS-OLD-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_282"><a   href="prop-ontologyphilosurficalowlhas-opposing-argument.html">ontology:philosurfical.owl#HAS-OPPOSING-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_283"><a   href="prop-ontologyphilosurficalowlhas-opposite-concept.html">ontology:philosurfical.owl#HAS-OPPOSITE-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_284"><a   href="prop-ontologyphilosurficalowlhas-pedagogical-value.html">ontology:philosurfical.owl#HAS-PEDAGOGICAL-VALUE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_285"><a   href="prop-ontologyphilosurficalowlhas-person-attacking.html">ontology:philosurfical.owl#HAS-PERSON-ATTACKING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_286"><a   href="prop-ontologyphilosurficalowlhas-person-defending.html">ontology:philosurfical.owl#HAS-PERSON-DEFENDING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_287"><a   href="prop-ontologyphilosurficalowlhas-problem-type.html">ontology:philosurfical.owl#HAS-PROBLEM-TYPE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_288"><a   href="prop-ontologyphilosurficalowlhas-produced.html">ontology:philosurfical.owl#HAS-PRODUCED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_289"><a   href="prop-ontologyphilosurficalowlhas-produced-manifestation.html">ontology:philosurfical.owl#HAS-PRODUCED-MANIFESTATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_290"><a   href="prop-ontologyphilosurficalowlhas-published.html">ontology:philosurfical.owl#HAS-PUBLISHED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_291"><a   href="prop-ontologyphilosurficalowlhas-receiver.html">ontology:philosurfical.owl#HAS-RECEIVER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_292"><a   href="prop-ontologyphilosurficalowlhas-referred-author.html">ontology:philosurfical.owl#HAS-REFERRED-AUTHOR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_293"><a   href="prop-ontologyphilosurficalowlhas-related-concept.html">ontology:philosurfical.owl#HAS-RELATED-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_294"><a   href="prop-ontologyphilosurficalowlhas-related-group-of-people.html">ontology:philosurfical.owl#HAS-RELATED-GROUP-OF-PEOPLE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_295"><a   href="prop-ontologyphilosurficalowlhas-related-intellectual-event.html">ontology:philosurfical.owl#HAS-RELATED-INTELLECTUAL-EVENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_296"><a   href="prop-ontologyphilosurficalowlhas-related-philo-event.html">ontology:philosurfical.owl#HAS-RELATED-PHILO-EVENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_297"><a   href="prop-ontologyphilosurficalowlhas-removed-element.html">ontology:philosurfical.owl#HAS-REMOVED-ELEMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_298"><a   href="prop-ontologyphilosurficalowlhas-residence.html">ontology:philosurfical.owl#HAS-RESIDENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_299"><a   href="prop-ontologyphilosurficalowlhas-resolutive-method.html">ontology:philosurfical.owl#HAS-RESOLUTIVE-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_300"><a   href="prop-ontologyphilosurficalowlhas-sender.html">ontology:philosurfical.owl#HAS-SENDER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_301"><a   href="prop-ontologyphilosurficalowlhas-sub-area.html">ontology:philosurfical.owl#HAS-SUB-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_302"><a   href="prop-ontologyphilosurficalowlhas-sub-unit.html">ontology:philosurfical.owl#HAS-SUB-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_303"><a   href="prop-ontologyphilosurficalowlhas-subject-area.html">ontology:philosurfical.owl#HAS-SUBJECT-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_304"><a   href="prop-ontologyphilosurficalowlhas-support-unit.html">ontology:philosurfical.owl#HAS-SUPPORT-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_305"><a   href="prop-ontologyphilosurficalowlhas-supporting-argument.html">ontology:philosurfical.owl#HAS-SUPPORTING-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_306"><a   href="prop-ontologyphilosurficalowlhas-supportive-view.html">ontology:philosurfical.owl#HAS-SUPPORTIVE-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_307"><a   href="prop-ontologyphilosurficalowlhas-teacher.html">ontology:philosurfical.owl#HAS-TEACHER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_308"><a   href="prop-ontologyphilosurficalowlhas-theory.html">ontology:philosurfical.owl#HAS-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_309"><a   href="prop-ontologyphilosurficalowlhas-thesis.html">ontology:philosurfical.owl#HAS-THESIS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_310"><a   href="prop-ontologyphilosurficalowlhas-time-specification.html">ontology:philosurfical.owl#HAS-TIME-SPECIFICATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_311"><a   href="prop-ontologyphilosurficalowlhas-topic.html">ontology:philosurfical.owl#HAS-TOPIC</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_312"><a   href="prop-ontologyphilosurficalowlhas-traveler.html">ontology:philosurfical.owl#HAS-TRAVELER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_313"><a   href="prop-ontologyphilosurficalowlhas-vice-chancellor.html">ontology:philosurfical.owl#HAS-VICE-CHANCELLOR</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_314"><a   href="prop-ontologyphilosurficalowlheaded-by.html">ontology:philosurfical.owl#HEADED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_315"><a   href="prop-ontologyphilosurficalowlidea-used.html">ontology:philosurfical.owl#IDEA-USED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_316"><a   href="prop-ontologyphilosurficalowlinfluenced-by-view.html">ontology:philosurfical.owl#INFLUENCED-BY-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_317"><a   href="prop-ontologyphilosurficalowlinfluences-view.html">ontology:philosurfical.owl#INFLUENCES-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_318"><a   href="prop-ontologyphilosurficalowlinterprets.html">ontology:philosurfical.owl#INTERPRETS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_319"><a   href="prop-ontologyphilosurficalowlinterprets-fact.html">ontology:philosurfical.owl#INTERPRETS-FACT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_320"><a   href="prop-ontologyphilosurficalowlinvolves-argument.html">ontology:philosurfical.owl#INVOLVES-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_321"><a   href="prop-ontologyphilosurficalowlinvolves-idea.html">ontology:philosurfical.owl#INVOLVES-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_322"><a   href="prop-ontologyphilosurficalowlinvolves-view.html">ontology:philosurfical.owl#INVOLVES-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_323"><a   href="prop-ontologyphilosurficalowlis-about-school.html">ontology:philosurfical.owl#IS-ABOUT-SCHOOL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_324"><a   href="prop-ontologyphilosurficalowlis-defined-by-view.html">ontology:philosurfical.owl#IS-DEFINED-BY-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_325"><a   href="prop-ontologyphilosurficalowlis-equal-in-time-to.html">ontology:philosurfical.owl#IS-EQUAL-IN-TIME-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_326"><a   href="prop-ontologyphilosurficalowlis-generalization-of.html">ontology:philosurfical.owl#IS-GENERALIZATION-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_327"><a   href="prop-ontologyphilosurficalowlis-identified-by.html">ontology:philosurfical.owl#IS-IDENTIFIED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_328"><a   href="prop-ontologyphilosurficalowlis-separated-from.html">ontology:philosurfical.owl#IS-SEPARATED-FROM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_329"><a   href="prop-ontologyphilosurficalowlis-specialization-of.html">ontology:philosurfical.owl#IS-SPECIALIZATION-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_330"><a   href="prop-ontologyphilosurficalowlis-tackled-by-argument.html">ontology:philosurfical.owl#IS-TACKLED-BY-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_331"><a   href="prop-ontologyphilosurficalowlis-tackled-by-view.html">ontology:philosurfical.owl#IS-TACKLED-BY-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_332"><a   href="prop-ontologyphilosurficalowlis-typified-by.html">ontology:philosurfical.owl#IS-TYPIFIED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_333"><a   href="prop-ontologyphilosurficalowlis-used-by-view.html">ontology:philosurfical.owl#IS-USED-BY-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_334"><a   href="prop-ontologyphilosurficalowllinked-to-fact.html">ontology:philosurfical.owl#LINKED-TO-FACT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_335"><a   href="prop-ontologyphilosurficalowlmeasured.html">ontology:philosurfical.owl#MEASURED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_336"><a   href="prop-ontologyphilosurficalowlmeeting-attendee.html">ontology:philosurfical.owl#MEETING-ATTENDEE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_337"><a   href="prop-ontologyphilosurficalowlmeeting-organizer.html">ontology:philosurfical.owl#MEETING-ORGANIZER</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_338"><a   href="prop-ontologyphilosurficalowlmeets-in-time-with.html">ontology:philosurfical.owl#MEETS-IN-TIME-WITH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_339"><a   href="prop-ontologyphilosurficalowlmoved.html">ontology:philosurfical.owl#MOVED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_340"><a   href="prop-ontologyphilosurficalowlmoved-from.html">ontology:philosurfical.owl#MOVED-FROM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_341"><a   href="prop-ontologyphilosurficalowlmoved-to.html">ontology:philosurfical.owl#MOVED-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_342"><a   href="prop-ontologyphilosurficalowlnew-context.html">ontology:philosurfical.owl#NEW-CONTEXT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_343"><a   href="prop-ontologyphilosurficalowlnew-view.html">ontology:philosurfical.owl#NEW-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_344"><a   href="prop-ontologyphilosurficalowlobserved-dimension.html">ontology:philosurfical.owl#OBSERVED-DIMENSION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_345"><a   href="prop-ontologyphilosurficalowloccurred-in-the-presence-of.html">ontology:philosurfical.owl#OCCURRED-IN-THE-PRESENCE-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_346"><a   href="prop-ontologyphilosurficalowloccurs-before.html">ontology:philosurfical.owl#OCCURS-BEFORE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_347"><a   href="prop-ontologyphilosurficalowloccurs-during.html">ontology:philosurfical.owl#OCCURS-DURING</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_348"><a   href="prop-ontologyphilosurficalowlold-context.html">ontology:philosurfical.owl#OLD-CONTEXT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_349"><a   href="prop-ontologyphilosurficalowlold-view.html">ontology:philosurfical.owl#OLD-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_350"><a   href="prop-ontologyphilosurficalowlopposes-view.html">ontology:philosurfical.owl#OPPOSES-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_351"><a   href="prop-ontologyphilosurficalowlorganization-part-of.html">ontology:philosurfical.owl#ORGANIZATION-PART-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_352"><a   href="prop-ontologyphilosurficalowloverlaps-in-time-with.html">ontology:philosurfical.owl#OVERLAPS-IN-TIME-WITH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_353"><a   href="prop-ontologyphilosurficalowloverlaps-with.html">ontology:philosurfical.owl#OVERLAPS-WITH</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_354"><a   href="prop-ontologyphilosurficalowlpart-of-school.html">ontology:philosurfical.owl#PART-OF-SCHOOL</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_355"><a   href="prop-ontologyphilosurficalowlpart-of-system.html">ontology:philosurfical.owl#PART-OF-SYSTEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_356"><a   href="prop-ontologyphilosurficalowlpart-of-theory.html">ontology:philosurfical.owl#PART-OF-THEORY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_357"><a   href="prop-ontologyphilosurficalowlpart-of-thesis.html">ontology:philosurfical.owl#PART-OF-THESIS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_358"><a   href="prop-ontologyphilosurficalowlpossesses.html">ontology:philosurfical.owl#POSSESSES</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_359"><a   href="prop-ontologyphilosurficalowlpredicts-fact.html">ontology:philosurfical.owl#PREDICTS-FACT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_360"><a   href="prop-ontologyphilosurficalowlproduced-by-demonstration.html">ontology:philosurfical.owl#PRODUCED-BY-DEMONSTRATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_361"><a   href="prop-ontologyphilosurficalowlproduces-conclusion.html">ontology:philosurfical.owl#PRODUCES-CONCLUSION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_362"><a   href="prop-ontologyphilosurficalowlproves-view.html">ontology:philosurfical.owl#PROVES-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_363"><a   href="prop-ontologyphilosurficalowlpublished-proceedings.html">ontology:philosurfical.owl#PUBLISHED-PROCEEDINGS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_364"><a   href="prop-ontologyphilosurficalowlregistered.html">ontology:philosurfical.owl#REGISTERED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_365"><a   href="prop-ontologyphilosurficalowlrelated-to-area.html">ontology:philosurfical.owl#RELATED-TO-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_366"><a   href="prop-ontologyphilosurficalowlrelated-to-problem.html">ontology:philosurfical.owl#RELATED-TO-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_367"><a   href="prop-ontologyphilosurficalowlremoved.html">ontology:philosurfical.owl#REMOVED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_368"><a   href="prop-ontologyphilosurficalowlrequires-concept.html">ontology:philosurfical.owl#REQUIRES-CONCEPT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_369"><a   href="prop-ontologyphilosurficalowlresulted-in.html">ontology:philosurfical.owl#RESULTED-IN</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_370"><a   href="prop-ontologyphilosurficalowlshares-belief.html">ontology:philosurfical.owl#SHARES-BELIEF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_371"><a   href="prop-ontologyphilosurficalowlsimilar-to.html">ontology:philosurfical.owl#SIMILAR-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_372"><a   href="prop-ontologyphilosurficalowlspecified-by-criteria.html">ontology:philosurfical.owl#SPECIFIED-BY-CRITERIA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_373"><a   href="prop-ontologyphilosurficalowlstarts.html">ontology:philosurfical.owl#STARTS</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_374"><a   href="prop-ontologyphilosurficalowlstudies.html">ontology:philosurfical.owl#STUDIES</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_375"><a   href="prop-ontologyphilosurficalowlsub-area-of.html">ontology:philosurfical.owl#SUB-AREA-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_376"><a   href="prop-ontologyphilosurficalowlsub-unit-of-organization-unit.html">ontology:philosurfical.owl#SUB-UNIT-OF-ORGANIZATION-UNIT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_377"><a   href="prop-ontologyphilosurficalowlsubsidiary-of.html">ontology:philosurfical.owl#SUBSIDIARY-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_378"><a   href="prop-ontologyphilosurficalowlsupports-idea.html">ontology:philosurfical.owl#SUPPORTS-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_379"><a   href="prop-ontologyphilosurficalowlsupports-view.html">ontology:philosurfical.owl#SUPPORTS-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_380"><a   href="prop-ontologyphilosurficalowltackles-problem.html">ontology:philosurfical.owl#TACKLES-PROBLEM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_381"><a   href="prop-ontologyphilosurficalowltook-out-of-existence.html">ontology:philosurfical.owl#TOOK-OUT-OF-EXISTENCE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_382"><a   href="prop-ontologyphilosurficalowltook-place-at.html">ontology:philosurfical.owl#TOOK-PLACE-AT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_383"><a   href="prop-ontologyphilosurficalowltook-place-on-or-within.html">ontology:philosurfical.owl#TOOK-PLACE-ON-OR-WITHIN</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_384"><a   href="prop-ontologyphilosurficalowltransferred-custody-of.html">ontology:philosurfical.owl#TRANSFERRED-CUSTODY-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_385"><a   href="prop-ontologyphilosurficalowltransferred-title-from.html">ontology:philosurfical.owl#TRANSFERRED-TITLE-FROM</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_386"><a   href="prop-ontologyphilosurficalowltransferred-title-of.html">ontology:philosurfical.owl#TRANSFERRED-TITLE-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_387"><a   href="prop-ontologyphilosurficalowltransferred-title-to.html">ontology:philosurfical.owl#TRANSFERRED-TITLE-TO</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_388"><a   href="prop-ontologyphilosurficalowltransformed.html">ontology:philosurfical.owl#TRANSFORMED</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_389"><a   href="prop-ontologyphilosurficalowltypical-of-area.html">ontology:philosurfical.owl#TYPICAL-OF-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_390"><a   href="prop-ontologyphilosurficalowltypifies.html">ontology:philosurfical.owl#TYPIFIES</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_391"><a   href="prop-ontologyphilosurficalowlunit-of-organization.html">ontology:philosurfical.owl#UNIT-OF-ORGANIZATION</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_392"><a   href="prop-ontologyphilosurficalowlused-by-argument.html">ontology:philosurfical.owl#USED-BY-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_393"><a   href="prop-ontologyphilosurficalowlused-in-argument.html">ontology:philosurfical.owl#USED-IN-ARGUMENT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_394"><a   href="prop-ontologyphilosurficalowlused-in-view.html">ontology:philosurfical.owl#USED-IN-VIEW</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_395"><a   href="prop-ontologyphilosurficalowlused-specific-object.html">ontology:philosurfical.owl#USED-SPECIFIC-OBJECT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_396"><a   href="prop-ontologyphilosurficalowlused-technique.html">ontology:philosurfical.owl#USED-TECHNIQUE</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_397"><a   href="prop-ontologyphilosurficalowluses-idea.html">ontology:philosurfical.owl#USES-IDEA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_398"><a   href="prop-ontologyphilosurficalowluses-method.html">ontology:philosurfical.owl#USES-METHOD</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_399"><a   href="prop-ontologyphilosurficalowlverified-by-fact.html">ontology:philosurfical.owl#VERIFIED-BY-FACT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_400"><a   href="prop-ontologyphilosurficalowlwas-conceived-by.html">ontology:philosurfical.owl#WAS-CONCEIVED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_401"><a   href="prop-ontologyphilosurficalowlwas-death-of.html">ontology:philosurfical.owl#WAS-DEATH-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_402"><a   href="prop-ontologyphilosurficalowlwas-influenced-by.html">ontology:philosurfical.owl#WAS-INFLUENCED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_403"><a   href="prop-ontologyphilosurficalowlwas-intended-use-of.html">ontology:philosurfical.owl#WAS-INTENDED-USE-OF</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_404"><a   href="prop-ontologyphilosurficalowlwas-made-by.html">ontology:philosurfical.owl#WAS-MADE-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_405"><a   href="prop-ontologyphilosurficalowlwas-motivated-by.html">ontology:philosurfical.owl#WAS-MOTIVATED-BY</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_406"><a   href="prop-ontologyphilosurficalowlwithin-context.html">ontology:philosurfical.owl#WITHIN-CONTEXT</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_407"><a   href="prop-ontologyphilosurficalowlwithin-research-area.html">ontology:philosurfical.owl#WITHIN-RESEARCH-AREA</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_408"><a   href="prop-ontologyphilosurficalowlworking-role.html">ontology:philosurfical.owl#WORKING-ROLE</a></li>
+          
+
+        
+
+        
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+    </ul>
+
+</div>
+
+
+<!-- /#sidebar-wrapper -->
+
+    
+
+
+
+
+    <!-- Begin page content -->
+    <div class="container" id="page-content-wrapper">
+
+      
+
+	
+
+
+
+
+
+
+        
+
+
+
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ol class="breadcrumb">
+    <li>
+      <a href="index.html">Home</a>
+    </li>
+    <li>
+          <a href="entities-az.html">Entities</a>
+    </li>
+    <li>
+          <a href="entities-tree-classes.html">Classes</a>
+    </li>
+      <li class="active">
+            http://philosurfical.open.ac.uk/ontology/philosurfical.owl#SCIENTIFIC-THEORY
+        </li>
+  </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+            <h1>
+
+                ontology:philosurfical.owl#SCIENTIFIC-THEORY
+                
+                    <small class="label label-info label-xs">leaf node</small>
+                  
+
+            </h1>
+            <hr>
+
+
+
+            <div class="tree-container">
+            <div class="tree">
+                <ul>
+                    
+
+                        
+
+                        <li>
+
+                          <a href="class-ontologyphilosurficalowltheory.html" title="'THEORY' - ++PhiloSURFical : A systemic conceptual construction, with a coherent and organic architecture. It explains a specific phenomena (or set of) ...">ontology:philosurfical.owl#THEORY</a>
+
+                          <ul>
+
+                            <li><a style="font-weight: bold;" title="'SCIENTIFIC-THEORY' - ++PhiloSURFical :">ontology:philosurfical.owl#SCIENTIFIC-THEORY</a>
+                            
+                              </li>
+
+                          </ul>
+
+                          </li>
+                        
+
+                    
+
+                </ul>
+            </div>
+            </div>
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">URI</h3>
+            </div>
+            <div class="panel-body">
+
+                <code>http://philosurfical.open.ac.uk/ontology/philosurfical.owl#SCIENTIFIC-THEORY</code>
+            </div>
+          </div>
+           </div></div>
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Label</h3>
+            </div>
+            <div class="panel-body">
+
+                SCIENTIFIC-THEORY
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Description</h3>
+            </div>
+            <div class="panel-body">
+
+                ++PhiloSURFical :
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+
+           
+            <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Superclasses (3)</h3>
+            </div>
+            <div class="panel-body">
+
+            
+                    <li><a href="class-ontologyphilosurficalowltheory.html">ontology:philosurfical.owl#THEORY</a></li><li><a href="class-ontologyphilosurficalowlview.html">ontology:philosurfical.owl#VIEW</a></li><li><a href="class-ontologyphilosurficalowlphilosophical-idea.html">ontology:philosurfical.owl#PHILOSOPHICAL-IDEA</a></li>
+            
+
+            </div>
+          </div>
+           </div></div>
+           
+
+
+
+         
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Usage</h3>
+            </div>
+            <div class="panel-body" style="overflow: auto;">
+
+                <p>Instances of ontology:philosurfical.owl#SCIENTIFIC-THEORY can have the following properties:</p>
+            </div>
+             <table class="table table-bordered" style="overflow: auto;">
+
+                <tr class="table-classproperties">
+                    <th>PROPERTY</th><th>DESCRIPTION</th><th>RANGE</th>
+                </tr>
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="ontology:philosurfical.owl#SCIENTIFIC-THEORY" href="class-ontologyphilosurficalowlscientific-theory.html" class="fromclass_link">ontology:philosurfical.owl#SCIENTIFIC-THEORY</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#EXISTS-IN-AREA" href="prop-ontologyphilosurficalowlexists-in-area.html">ontology:philosurfical.owl#EXISTS-IN-AREA</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#PREDICTS-FACT" href="prop-ontologyphilosurficalowlpredicts-fact.html">ontology:philosurfical.owl#PREDICTS-FACT</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#VERIFIED-BY-FACT" href="prop-ontologyphilosurficalowlverified-by-fact.html">ontology:philosurfical.owl#VERIFIED-BY-FACT</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="ontology:philosurfical.owl#THEORY" href="class-ontologyphilosurficalowltheory.html" class="fromclass_link">ontology:philosurfical.owl#THEORY</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#DEFINES-METHOD" href="prop-ontologyphilosurficalowldefines-method.html">ontology:philosurfical.owl#DEFINES-METHOD</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-THESIS" href="prop-ontologyphilosurficalowlhas-thesis.html">ontology:philosurfical.owl#HAS-THESIS</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#PART-OF-SYSTEM" href="prop-ontologyphilosurficalowlpart-of-system.html">ontology:philosurfical.owl#PART-OF-SYSTEM</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#PART-OF-THEORY" href="prop-ontologyphilosurficalowlpart-of-theory.html">ontology:philosurfical.owl#PART-OF-THEORY</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="ontology:philosurfical.owl#VIEW" href="class-ontologyphilosurficalowlview.html" class="fromclass_link">ontology:philosurfical.owl#VIEW</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#EXISTS-IN-AREA" href="prop-ontologyphilosurficalowlexists-in-area.html">ontology:philosurfical.owl#EXISTS-IN-AREA</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#INTERPRETS-FACT" href="prop-ontologyphilosurficalowlinterprets-fact.html">ontology:philosurfical.owl#INTERPRETS-FACT</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#TYPIFIES" href="prop-ontologyphilosurficalowltypifies.html">ontology:philosurfical.owl#TYPIFIES</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="ontology:philosurfical.owl#PHILOSOPHICAL-IDEA" href="class-ontologyphilosurficalowlphilosophical-idea.html" class="fromclass_link">ontology:philosurfical.owl#PHILOSOPHICAL-IDEA</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-COMMON-NAME" href="prop-ontologyphilosurficalowlhas-common-name.html">ontology:philosurfical.owl#HAS-COMMON-NAME</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-DESCRIPTION" href="prop-ontologyphilosurficalowlhas-description.html">ontology:philosurfical.owl#HAS-DESCRIPTION</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-REFERRED-AUTHOR" href="prop-ontologyphilosurficalowlhas-referred-author.html">ontology:philosurfical.owl#HAS-REFERRED-AUTHOR</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#WAS-MADE-BY" href="prop-ontologyphilosurficalowlwas-made-by.html">ontology:philosurfical.owl#WAS-MADE-BY</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+                    
+
+                    
+
+                        <tr class="table-inheritanceinfo">
+                            <th colspan="3" class="treeinfo"><span class="label label-default">From class <a title="owl:Thing" href="class-owlthing.html" class="fromclass_link">owl:Thing</a></span>
+                            </th>
+                        </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-ALTERNATIVE-FORM" href="prop-ontologyphilosurficalowlhas-alternative-form.html">ontology:philosurfical.owl#HAS-ALTERNATIVE-FORM</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-ALTITUDE" href="prop-ontologyphilosurficalowlhas-altitude.html">ontology:philosurfical.owl#HAS-ALTITUDE</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-BBOXEAST" href="prop-ontologyphilosurficalowlhas-bboxeast.html">ontology:philosurfical.owl#HAS-BBOXEAST</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-BBOXNORTH" href="prop-ontologyphilosurficalowlhas-bboxnorth.html">ontology:philosurfical.owl#HAS-BBOXNORTH</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-BBOXSOUTH" href="prop-ontologyphilosurficalowlhas-bboxsouth.html">ontology:philosurfical.owl#HAS-BBOXSOUTH</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-BBOXWEST" href="prop-ontologyphilosurficalowlhas-bboxwest.html">ontology:philosurfical.owl#HAS-BBOXWEST</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-LATITUDE" href="prop-ontologyphilosurficalowlhas-latitude.html">ontology:philosurfical.owl#HAS-LATITUDE</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#HAS-LONGITUDE" href="prop-ontologyphilosurficalowlhas-longitude.html">ontology:philosurfical.owl#HAS-LONGITUDE</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td class="firsttd">
+                                    <a class="propcolor" title="ontology:philosurfical.owl#TYPICAL-OF-AREA" href="prop-ontologyphilosurficalowltypical-of-area.html">ontology:philosurfical.owl#TYPICAL-OF-AREA</a>
+                                </td>
+                                <td class="thirdtd">
+                                    <span>--</span>
+                                </td>
+                                <td class="secondtd">
+                                    
+                                        <i>owl:Thing</i>
+                                    
+                                </td>
+                            </tr>
+
+                            
+
+                    
+
+                    
+
+                
+
+            </table>
+
+
+          </div>
+           </div></div>
+
+        
+
+
+
+
+
+
+           <div class="row"><div class="col-md-12">
+              <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Implementation</h3>
+            </div>
+            <div class="panel-body implementation-panel">
+
+                
+
+                    <div class="highlight"><pre><span></span><span class="k">@prefix</span><span class="w"> </span><span class="nn">ontology:</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl11:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2006/12/owl11#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">owl11xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2006/12/owl11-xml#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">phideas:</span><span class="w"> </span><span class="nv">&lt;http://purl.com/net/phideas#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdf:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">skos:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2004/02/skos/core#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xml:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/XML/1998/namespace&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="k">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+
+<span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#SCIENTIFIC-THEORY&gt;</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Class</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">comment</span><span class="w"> </span><span class="s">&quot;++PhiloSURFical :&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subClassOf</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Restriction</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">allValuesFrom</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#SCIENTIFIC-DISCIPLINE&gt;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">onProperty</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#EXISTS-IN-AREA&gt;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Restriction</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">allValuesFrom</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#TEMPORAL-ENTITY&gt;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">onProperty</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#VERIFIED-BY-FACT&gt;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">Restriction</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">allValuesFrom</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#TEMPORAL-ENTITY&gt;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nn">owl:</span><span class="nt">onProperty</span><span class="w"> </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#PREDICTS-FACT&gt;</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nv">&lt;http://philosurfical.open.ac.uk/ontology/philosurfical.owl#THEORY&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+</pre></div>
+
+
+                
+            </div>
+          </div>
+           </div></div>
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+	</div><!-- /#page-content-wrapper -->
+
+
+  
+
+
+
+  
+
+
+
+
+  <footer class="footer">
+    <div class="container">
+    
+      <p class="text-muted">Documentation automatically generated on 20th June 2017 with <a href="https://github.com/lambdamusic/OntoDocs">OntoDocs</a> (v1.0.3)</p>
+
+    
+    </div>
+  </footer>
+
+
+</div><!-- /#wrapper -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="static/libs/jquery/1_12_4/jquery.min.js"></script>
+<script src="static/libs/bootstrap-3_3_7-dist/js/bootstrap.min.js"></script>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="static/libs/bootstrap-3_3_7-dist/js/ie10-viewport-bug-workaround.js"></script>
+
+<script src="static/libs/chartjs-2_4_0/chart.bundle.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+
+
+
+
+<script type="text/javascript">
+
+$('#search-input-sidebar').keyup(function() {
+
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+  // var $rows = $(this).next(".entities-list").find("div");
+  var $rows = $(this).parent().parent().find("li.second-level");
+
+  $rows.show().filter(function() {
+      var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+      return !~text.indexOf(val);
+  }).hide();
+});
+
+</script>
+
+
+
+
+  <!-- Scroll Sidebar Script -->
+
+  
+  
+
+  <script type="text/javascript">
+
+    $(document).ready(function (){
+      $('#sidebar-wrapper').animate({
+          scrollTop: $("#sd_161").offset().top - 100
+      }, 100);
+    });
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
